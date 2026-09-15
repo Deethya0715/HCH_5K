@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Hope. Cope. Heal. brand tokens
+   gold ribbon = childhood cancer awareness, slate blue = trust,
+   teal = calm/therapy, neutrals = clean clinical white space.
+   Text-safe shades (ink/deep) are provided so accent colors are
+   never used for small copy where contrast would fail WCAG AA.
+   --------------------------------------------------------------- */
+@theme {
+  --color-gold-50: #fffbeb;
+  --color-gold-100: #fef3c7;
+  --color-gold-200: #fde68a;
+  --color-gold-300: #fcd34d;
+  --color-gold-400: #fbbf24;
+  --color-gold-500: #f59e0b;
+  --color-gold-600: #d97706;
+  --color-gold-700: #b45309;
+  --color-gold-800: #92400e;
+  --color-gold-900: #78350f;
+  --color-gold-950: #451a03;
+
+  --color-slateblue-50: #eff6ff;
+  --color-slateblue-100: #dbeafe;
+  --color-slateblue-200: #bfdbfe;
+  --color-slateblue-300: #93c5fd;
+  --color-slateblue-400: #60a5fa;
+  --color-slateblue-500: #3b82f6;
+  --color-slateblue-600: #2563eb;
+  --color-slateblue-700: #1d4ed8;
+  --color-slateblue-800: #1e40af;
+  --color-slateblue-900: #1e3a8a;
+  --color-slateblue-950: #172554;
+
+  --color-teal-soft-50: #f0fdfa;
+  --color-teal-soft-100: #ccfbf1;
+  --color-teal-soft-200: #99f6e4;
+  --color-teal-soft-300: #5eead4;
+  --color-teal-soft-400: #2dd4bf;
+  --color-teal-soft-500: #14b8a6;
+  --color-teal-soft-600: #0d9488;
+  --color-teal-soft-700: #0f766e;
+  --color-teal-soft-800: #115e59;
+
+  --font-display: "Georgia", "Iowan Old Style", "Times New Roman", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* keep anchor targets clear of the sticky header */
+    scroll-padding-top: 5.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply w-full max-w-full overflow-x-hidden bg-[#FBFBFA] text-slate-800 antialiased;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, sans-serif;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold-700;
+  }
+}
+
+@layer components {
+  /* Map pins grow in place when their legend card is tapped. transform-box
+     is required so the SVG transform origin is the pin, not the canvas. */
+  .map-marker {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+
+  .map-marker.is-active {
+    transform: scale(1.5);
+  }
+
+  .map-marker.is-active circle {
+    stroke: #f59e0b;
+    stroke-width: 4;
+  }
+
+  .js-legend.is-active {
+    @apply border-slateblue-600 bg-slateblue-50 ring-2 ring-slateblue-200;
+  }
+
+  .js-nav-link.is-current {
+    @apply bg-slate-100 text-slate-900;
+  }
+
+  /* Slide-down mobile drawer. Height animates via grid rows so the
+     panel never clips mid-open and stays out of tab order when closed. */
+  .mobile-nav-drawer {
+    display: grid;
+    grid-template-rows: 0fr;
+    background-color: #FBFBFA;
+    border-top: 1px solid rgb(226 232 240 / 0.9);
+    transition: grid-template-rows 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mobile-nav-drawer.is-open {
+    grid-template-rows: 1fr;
+  }
+
+  .mobile-nav-drawer > .mobile-nav-inner {
+    overflow: hidden;
+  }
+}
+
+@utility section-shell {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility eyebrow {
+  @apply inline-flex items-center gap-2 rounded-full bg-gold-100 px-3 py-1 text-xs font-bold uppercase tracking-widest text-gold-800;
+}
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

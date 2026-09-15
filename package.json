@@ -1,0 +1,15 @@
+{
+  "name": "hope-cope-heal-5k",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Single-page event site for the Hope. Cope. Heal. Inaugural 5K, 10K & Family Festival",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./assets/styles.css --minify",
+    "dev": "tailwindcss -i ./src/input.css -o ./assets/styles.css --watch",
+    "serve": "npx --yes serve ."
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "tailwindcss": "^4.1.13"
+  }
+}
