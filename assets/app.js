@@ -134,4 +134,5 @@
   if (countdownValue && !renderCountdown()) {
     setInterval(renderCountdown, 30000);
   }
+
 })();

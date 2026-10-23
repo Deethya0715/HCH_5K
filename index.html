@@ -7,6 +7,29 @@
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <meta name="theme-color" content="#FBFBFA" />
+    <script>
+      (function () {
+        var theme = "light";
+        try {
+          var stored = localStorage.getItem("hch-theme");
+          if (stored === "light" || stored === "dark") {
+            theme = stored;
+          } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+          }
+        } catch (e) {
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+          }
+        }
+        var meta = document.querySelector('meta[name="theme-color"]');
+        var lightColor = (meta && meta.getAttribute("content")) || "#FBFBFA";
+        if (meta) meta.setAttribute("data-theme-light", lightColor);
+        if (theme === "dark") document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = theme;
+        if (meta && theme === "dark") meta.setAttribute("content", "#121418");
+      })();
+    </script>
     <title>
       Hope. Cope. Heal. Inaugural 5K, 10K &amp; Family Festival | March 27, 2027
       | Frisco, TX
@@ -150,6 +173,40 @@
           </nav>
 
           <div class="flex items-center justify-self-end gap-2">
+            <button
+              type="button"
+              id="themeToggle"
+              class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:bg-slate-50"
+              aria-pressed="false"
+              aria-label="Toggle color theme"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="theme-icon-moon h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z" />
+              </svg>
+              <svg
+                viewBox="0 0 24 24"
+                class="theme-icon-sun hidden h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M18.7 18.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M18.7 5.3l1.1-1.1"
+                />
+              </svg>
+            </button>
             <a
               href="#races"
               class="hidden rounded-full bg-gold-500 px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-gold-600 lg:inline-flex"
@@ -421,15 +478,19 @@
         </div>
 
         <div class="relative border-t border-slate-200/80 bg-white">
-          <div class="section-shell py-4">
+          <div class="section-shell py-6 sm:py-8">
             <div
               id="countdown"
-              class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-sm font-medium text-slate-600"
+              class="mx-auto flex w-full max-w-4xl flex-col items-center justify-center gap-2 rounded-2xl border border-gold-200 bg-gold-50 px-6 py-5 text-center shadow-sm sm:px-10 sm:py-6"
+              aria-live="polite"
             >
-              <span class="font-semibold text-gold-800"
-                >Race day countdown:</span
+              <span
+                class="text-sm font-semibold uppercase tracking-widest text-gold-800"
+                >Race day countdown</span
               >
-              <span id="countdownValue" class="tabular-nums text-slate-900"
+              <span
+                id="countdownValue"
+                class="text-2xl font-bold tracking-tight text-slate-900 tabular-nums sm:text-3xl"
                 >Saturday, March 27, 2027</span
               >
             </div>
@@ -736,7 +797,7 @@
                   >1:00 PM</span
                 >
                 <span class="flex-1 text-base font-bold text-slate-900"
-                  >Live Lawn Games, Face Painting &amp; Therapist Booths</span
+                  >Family Workshop, Games Zone &amp; Festival Activities</span
                 >
                 <svg
                   viewBox="0 0 24 24"
@@ -752,11 +813,12 @@
               <div
                 class="px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:pl-29"
               >
-                Running until 3:00 PM. Giant Jenga, cornhole, a bubble garden,
-                and free face painting on the festival lawn. Licensed pediatric
-                therapists and child life specialists staff resource booths
-                along the Pavilion walkway — stop by, ask questions, take a
-                card.
+                Running until 3:00 PM. The Family Workshop &amp; Games Zone
+                offers pipe cleaner crafts, ring toss, cornhole, and face
+                painting — $3 per activity ticket, with cash, Zelle, and Venmo
+                accepted. Community Charity Bingo follows, with prizes donated
+                by local partners. A Kendra Scott jewelry silent auction
+                benefits the therapy playroom suite.
               </div>
             </details>
 
@@ -1125,6 +1187,84 @@
             </article>
           </div>
 
+          <!-- Group / Team Bundle -->
+          <article
+            class="mt-5 flex flex-col rounded-2xl border-2 border-teal-soft-400 bg-white p-6 shadow-md lg:flex-row lg:items-center lg:gap-10 lg:p-7"
+          >
+            <div class="min-w-0 flex-1">
+              <p
+                class="rounded-2xl bg-gold-100 px-4 py-2.5 text-sm font-semibold leading-snug text-gold-900 ring-1 ring-inset ring-gold-300"
+              >
+                <span class="font-extrabold">Run as a Team &amp; Fundraise:</span>
+                Set your family's personal playroom fundraising goal!
+              </p>
+              <h3 class="mt-4 text-xl font-extrabold text-slate-900">
+                Group / Team Bundle
+              </h3>
+              <p class="mt-2 max-w-xl text-sm leading-relaxed text-slate-600">
+                Five runners on one registration. Each person may enter the 5K
+                or the 10K.
+              </p>
+              <ul class="mt-4 grid gap-2 text-sm text-slate-700 sm:grid-cols-3">
+                <li class="flex gap-2">
+                  <svg
+                    viewBox="0 0 20 20"
+                    class="mt-0.5 h-4 w-4 shrink-0 text-teal-soft-600"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M8 13.2 4.8 10l-1.3 1.3L8 15.8l8.5-8.5-1.3-1.3z"
+                    /></svg
+                  >Five race entries
+                </li>
+                <li class="flex gap-2">
+                  <svg
+                    viewBox="0 0 20 20"
+                    class="mt-0.5 h-4 w-4 shrink-0 text-teal-soft-600"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M8 13.2 4.8 10l-1.3 1.3L8 15.8l8.5-8.5-1.3-1.3z"
+                    /></svg
+                  >5K or 10K, per runner
+                </li>
+                <li class="flex gap-2">
+                  <svg
+                    viewBox="0 0 20 20"
+                    class="mt-0.5 h-4 w-4 shrink-0 text-teal-soft-600"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M8 13.2 4.8 10l-1.3 1.3L8 15.8l8.5-8.5-1.3-1.3z"
+                    /></svg
+                  >Shirt, bib, and finisher award
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 shrink-0 border-t border-slate-200 pt-5 lg:mt-0 lg:w-72 lg:border-t-0 lg:border-l lg:pl-10 lg:pt-0 lg:text-right">
+              <p class="flex items-baseline gap-1.5 lg:justify-end">
+                <span class="text-3xl font-extrabold text-slate-900">$140</span>
+                <span class="text-sm font-semibold text-slate-500"
+                  >for 5 runners</span
+                >
+              </p>
+              <p class="mt-1.5 text-xs font-medium leading-snug text-slate-500">
+                Scales dynamically at $28 per runner for 5+ participants
+              </p>
+              <p class="mt-1 text-sm font-medium text-slate-500">$28 per runner</p>
+              <div class="mt-4">
+                <a
+                  href="register/team/"
+                  class="block rounded-xl bg-teal-soft-700 px-4 py-3 text-center text-sm font-bold text-white hover:bg-teal-soft-800"
+                  >Register our team</a
+                >
+              </div>
+            </div>
+          </article>
+
           <div
             id="register-note"
             class="mt-6 scroll-mt-24 rounded-2xl border border-slateblue-200 bg-slateblue-50 p-5 text-sm leading-relaxed text-slateblue-900"
@@ -1165,9 +1305,9 @@
               </h2>
               <p class="mt-4 text-base leading-relaxed text-slate-700">
                 The half-mile stretch of trail between the Pavilion and the
-                north bend is lined with tribute signs — one for each young
-                fighter, survivor, and angel our community carries with them.
-                Every runner on the 5K, 10K, and family walk passes them.
+                north bend is lined with tribute signs. Dedications honor
+                childhood cancer patients, survivors, and angels. Every runner
+                on the 5K, 10K, and family walk passes them.
               </p>
               <p class="mt-4 text-base leading-relaxed text-slate-700">
                 Each sign carries a child's name, photo, and a short message
@@ -1236,9 +1376,22 @@
                 Dedicate a Trail Sign
               </h3>
               <p class="mt-2 text-sm leading-relaxed text-slate-600">
-                Signs are $40 and sponsored signs are always available at no
-                cost to patient families — just tell us and we will handle it.
+                Dedications honor childhood cancer patients, survivors, and
+                angels.
               </p>
+              <ul class="mt-4 space-y-2" aria-label="Tribute sign pricing">
+                <li
+                  class="rounded-xl border border-teal-soft-200 bg-teal-soft-50 px-4 py-3 text-sm font-bold leading-relaxed text-teal-soft-800"
+                >
+                  Free for Pediatric Cancer Families
+                </li>
+                <li
+                  class="rounded-xl border border-gold-200 bg-gold-50 px-4 py-3 text-sm font-bold leading-relaxed text-gold-900"
+                >
+                  Sponsor a Child's Sign ($40) - Includes Small Business /
+                  Sponsor Logo Placement
+                </li>
+              </ul>
 
               <ol class="mt-6 space-y-5">
                 <li class="flex gap-4">
@@ -1249,13 +1402,8 @@
                   <div>
                     <p class="font-bold text-slate-900">Share your hero</p>
                     <p class="mt-1 text-sm leading-relaxed text-slate-600">
-                      Email a photo, their first name, and up to 25 words to
-                      <a
-                        class="font-semibold text-slateblue-700 underline underline-offset-2"
-                        href="mailto:info@hopecopeheal.org"
-                        >info@hopecopeheal.org</a
-                      >
-                      with the subject line "Trail Sign."
+                      Fill out the dedication form with a photo, their first
+                      name, and a message of up to 25 words.
                     </p>
                   </div>
                 </li>
@@ -1311,10 +1459,12 @@
               </p>
 
               <a
-                href="mailto:info@hopecopeheal.org?subject=Trail%20Sign%20Dedication"
+                href="https://forms.gle/jgNNWQMzupk8DiQi8"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="mt-5 block rounded-xl bg-gold-500 px-4 py-3.5 text-center text-sm font-bold text-gold-950 hover:bg-gold-400"
               >
-                Dedicate a sign
+                Submit a Hero Tribute Sign
               </a>
             </div>
           </div>
@@ -2780,5 +2930,6 @@
     <div class="h-20 sm:hidden" aria-hidden="true"></div>
 
     <script src="assets/app.js" defer></script>
+    <script src="assets/theme.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#F8FAFC" />
+    <script>
+      (function () {
+        var theme = "light";
+        try {
+          var stored = localStorage.getItem("hch-theme");
+          if (stored === "light" || stored === "dark") {
+            theme = stored;
+          } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+          }
+        } catch (e) {
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+          }
+        }
+        var meta = document.querySelector('meta[name="theme-color"]');
+        var lightColor = (meta && meta.getAttribute("content")) || "#F8FAFC";
+        if (meta) meta.setAttribute("data-theme-light", lightColor);
+        if (theme === "dark") document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = theme;
+        if (meta && theme === "dark") meta.setAttribute("content", "#121418");
+      })();
+    </script>
+    <title>Team &amp; Group Registration | Hope. Cope. Heal.</title>
+    <meta
+      name="description"
+      content="Register 5 or more runners for the Hope. Cope. Heal. Inaugural 5K, 10K and Family Festival. Team pricing is $140 for 5 runners and $28 for each additional runner."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F172A'/%3E%3Cpath d='M16 6c2.4 1.8 4 4.6 4 7.4 0 2.2-1.2 3.6-2.6 4.2 1.6.5 2.8 2 2.8 3.8 0 2.3-2 4.2-4.2 4.2S12 23.7 12 21.4c0-1.8 1.2-3.3 2.8-3.8C13.4 17 12.2 15.6 12.2 13.4 12.2 10.6 13.8 7.8 16 6z' fill='%23F59E0B'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="../../assets/styles.css" />
+  </head>
+
+  <body class="w-full max-w-full overflow-x-hidden bg-slate-50 text-slate-800 antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-slate-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"
+      >Skip to main content</a
+    >
+
+    <header
+      class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80"
+    >
+      <div class="section-shell flex h-16 items-center justify-between gap-3 sm:h-[4.25rem]">
+        <a
+          href="../../index.html"
+          class="flex min-w-0 items-center gap-2.5"
+          aria-label="Hope. Cope. Heal. home"
+        >
+          <span
+            class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold-50 ring-1 ring-inset ring-gold-200"
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5 fill-gold-600" aria-hidden="true">
+              <path
+                d="M12 3.2c1.9 1.5 3.2 3.8 3.2 6.2 0 1.7-.8 2.9-2 3.5 1.4.5 2.4 1.8 2.4 3.4 0 2.1-1.7 3.7-3.6 3.7S8.4 18.4 8.4 16.3c0-1.6 1-2.9 2.4-3.4-1.2-.6-2-1.8-2-3.5 0-2.4 1.3-4.7 3.2-6.2z"
+              />
+            </svg>
+          </span>
+          <span class="min-w-0 leading-tight">
+            <span class="block truncate text-[15px] font-bold tracking-tight text-slate-900"
+              >Hope. Cope. Heal.</span
+            >
+            <span class="block truncate text-[11px] font-medium tracking-wide text-slate-500"
+              >5K · 10K · Family Festival</span
+            >
+          </span>
+        </a>
+        <div class="flex shrink-0 items-center gap-2">
+          <button
+            type="button"
+            id="themeToggle"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:bg-slate-50"
+            aria-pressed="false"
+            aria-label="Toggle color theme"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              class="theme-icon-moon h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z" />
+            </svg>
+            <svg
+              viewBox="0 0 24 24"
+              class="theme-icon-sun hidden h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M18.7 18.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M18.7 5.3l1.1-1.1"
+              />
+            </svg>
+          </button>
+          <a
+            href="../../index.html#races"
+            class="hidden rounded-full px-3 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 sm:inline-flex"
+            >All race options</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="relative">
+      <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 overflow-hidden" aria-hidden="true">
+        <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold-100/80 blur-3xl"></div>
+      </div>
+
+      <div class="section-shell py-8 sm:py-12">
+        <a
+          href="../../index.html#races"
+          class="inline-flex items-center rounded-full py-2 text-sm font-semibold text-slate-600 transition hover:text-slate-900"
+          >← Back to all race options</a
+        >
+
+        <header class="mt-4 max-w-3xl">
+          <p class="eyebrow">Team rate</p>
+          <h1 class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
+            Team &amp; Group Registration
+          </h1>
+          <p class="mt-4 text-base leading-relaxed text-slate-600">
+            Run as a team for Hope. Cope. Heal. Register 5 or more runners to
+            lock in discounted $28/runner pricing ($35 standard value).
+          </p>
+          <p class="mt-3 text-sm font-medium text-slate-500">
+            Saturday, March 27, 2027 · Frisco Commons Park
+          </p>
+        </header>
+
+        <noscript>
+          <p class="mt-6 max-w-3xl rounded-2xl border border-gold-200 bg-gold-50 p-4 text-sm leading-relaxed text-gold-900">
+            The price calculator and runner roster need JavaScript. Email
+            <a class="font-semibold underline underline-offset-2" href="mailto:info@hopecopeheal.org?subject=Team%20registration"
+              >info@hopecopeheal.org</a
+            >
+            with your group name, captain contact, and each runner’s name, race
+            (5K or 10K), and shirt size.
+          </p>
+        </noscript>
+
+        <form id="teamForm" class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start" novalidate>
+          <div class="min-w-0 space-y-6">
+            <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="team-size-heading">
+              <h2 id="team-size-heading" class="text-lg font-extrabold text-slate-900">
+                Number of Runners
+              </h2>
+              <p class="mt-1 text-sm text-slate-500">Minimum 5 · maximum 25</p>
+
+              <div class="mt-5 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                <div
+                  class="flex items-center gap-3"
+                  role="group"
+                  aria-labelledby="team-size-heading"
+                >
+                  <button
+                    type="button"
+                    id="decrementRunners"
+                    class="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-sm transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                    aria-label="Remove a runner"
+                    disabled
+                  >
+                    <svg viewBox="0 0 20 20" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                      <path d="M4 10h12" />
+                    </svg>
+                  </button>
+                  <p id="runnerCount" class="w-14 text-center text-4xl font-extrabold tabular-nums text-slate-900" aria-label="5 runners">5</p>
+                  <button
+                    type="button"
+                    id="incrementRunners"
+                    class="grid h-11 w-11 place-items-center rounded-full border border-slate-200 bg-white text-slate-900 shadow-sm transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                    aria-label="Add a runner"
+                  >
+                    <svg viewBox="0 0 20 20" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                      <path d="M10 4v12M4 10h12" />
+                    </svg>
+                  </button>
+                </div>
+
+                <div class="sm:text-right" aria-live="polite" aria-atomic="true">
+                  <p id="liveRunnerCount" class="sr-only">5 runners</p>
+                  <p id="liveTotal" class="text-4xl font-extrabold tabular-nums text-slate-900">$140</p>
+                  <p class="text-sm font-medium text-slate-500">$28 per runner</p>
+                  <p
+                    id="savingsBadge"
+                    class="mt-3 inline-block max-w-full rounded-full bg-gold-100 px-3 py-1.5 text-sm font-semibold leading-snug text-gold-900 ring-1 ring-inset ring-gold-300"
+                  >
+                    🎉 Your team saves $35 vs. individual entry!
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="team-details-heading">
+              <h2 id="team-details-heading" class="text-lg font-extrabold text-slate-900">
+                Team Details
+              </h2>
+              <div class="mt-5">
+                <label for="teamName" class="block text-sm font-semibold text-slate-900">Team / Group Name</label>
+                <input
+                  id="teamName"
+                  name="teamName"
+                  type="text"
+                  required
+                  maxlength="80"
+                  autocomplete="organization"
+                  placeholder="Runners for Hope"
+                  aria-describedby="teamName-error teamName-hint"
+                  class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 aria-invalid:border-red-500"
+                />
+                <p id="teamName-hint" class="mt-1.5 text-xs text-slate-500">
+                  e.g., Runners for Hope, Smith Family &amp; Friends, UTD Run Club
+                </p>
+                <p id="teamName-error" class="mt-1.5 hidden text-xs font-semibold text-red-700"></p>
+              </div>
+
+              <div class="mt-6 border-t border-slate-200 pt-6">
+                <h3 class="text-base font-extrabold text-slate-900">Team Captain / Primary Contact</h3>
+                <p class="mt-1 text-sm text-slate-500">For race day packet pickup coordination.</p>
+                <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                  <div class="sm:col-span-2">
+                    <label for="captainName" class="block text-sm font-semibold text-slate-900">Name</label>
+                    <input
+                      id="captainName"
+                      name="captainName"
+                      type="text"
+                      required
+                      maxlength="80"
+                      autocomplete="name"
+                      placeholder="Full name"
+                      aria-describedby="captainName-error"
+                      class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 aria-invalid:border-red-500"
+                    />
+                    <p id="captainName-error" class="mt-1.5 hidden text-xs font-semibold text-red-700"></p>
+                  </div>
+                  <div>
+                    <label for="captainEmail" class="block text-sm font-semibold text-slate-900">Email</label>
+                    <input
+                      id="captainEmail"
+                      name="captainEmail"
+                      type="email"
+                      required
+                      maxlength="120"
+                      autocomplete="email"
+                      inputmode="email"
+                      placeholder="name@email.com"
+                      aria-describedby="captainEmail-error"
+                      class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 aria-invalid:border-red-500"
+                    />
+                    <p id="captainEmail-error" class="mt-1.5 hidden text-xs font-semibold text-red-700"></p>
+                  </div>
+                  <div>
+                    <label for="captainPhone" class="block text-sm font-semibold text-slate-900">Phone number</label>
+                    <input
+                      id="captainPhone"
+                      name="captainPhone"
+                      type="tel"
+                      required
+                      maxlength="30"
+                      autocomplete="tel"
+                      inputmode="tel"
+                      placeholder="(972) 555-0134"
+                      aria-describedby="captainPhone-error"
+                      class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 aria-invalid:border-red-500"
+                    />
+                    <p id="captainPhone-error" class="mt-1.5 hidden text-xs font-semibold text-red-700"></p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="roster-heading">
+              <div class="flex items-end justify-between gap-3">
+                <div>
+                  <h2 id="roster-heading" class="text-lg font-extrabold text-slate-900">Runner Roster</h2>
+                  <p class="mt-1 text-sm text-slate-500">Each person may enter the 5K or the 10K.</p>
+                </div>
+                <p id="rosterCountLabel" class="shrink-0 text-sm font-semibold text-slate-500">5 runners</p>
+              </div>
+              <div id="runnerRoster" class="mt-4 space-y-4"></div>
+            </section>
+
+            <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+              <fieldset id="goalFieldset">
+                <legend class="flex flex-wrap items-center gap-2 text-lg font-extrabold text-slate-900">
+                  Team Fundraising Goal
+                  <span class="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider text-slate-500">Optional</span>
+                </legend>
+                <p class="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
+                  Set a collective team fundraising goal for our pediatric therapy playroom build-out
+                </p>
+                <div class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+                  <label class="cursor-pointer">
+                    <input class="peer sr-only" type="radio" name="fundraising" value="none" checked />
+                    <span class="block rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-center text-sm font-semibold text-slate-700 peer-checked:border-gold-500 peer-checked:bg-gold-50 peer-checked:text-slate-900 peer-focus-visible:ring-2 peer-focus-visible:ring-gold-700 peer-focus-visible:ring-offset-2">No goal yet</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input class="peer sr-only" type="radio" name="fundraising" value="250" />
+                    <span class="block rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-center text-sm font-semibold text-slate-700 peer-checked:border-gold-500 peer-checked:bg-gold-50 peer-checked:text-slate-900 peer-focus-visible:ring-2 peer-focus-visible:ring-gold-700 peer-focus-visible:ring-offset-2">$250</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input class="peer sr-only" type="radio" name="fundraising" value="500" />
+                    <span class="block rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-center text-sm font-semibold text-slate-700 peer-checked:border-gold-500 peer-checked:bg-gold-50 peer-checked:text-slate-900 peer-focus-visible:ring-2 peer-focus-visible:ring-gold-700 peer-focus-visible:ring-offset-2">$500</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input class="peer sr-only" type="radio" name="fundraising" value="1000" />
+                    <span class="block rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-center text-sm font-semibold text-slate-700 peer-checked:border-gold-500 peer-checked:bg-gold-50 peer-checked:text-slate-900 peer-focus-visible:ring-2 peer-focus-visible:ring-gold-700 peer-focus-visible:ring-offset-2">$1,000</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input class="peer sr-only" type="radio" name="fundraising" value="custom" />
+                    <span class="block rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-center text-sm font-semibold text-slate-700 peer-checked:border-gold-500 peer-checked:bg-gold-50 peer-checked:text-slate-900 peer-focus-visible:ring-2 peer-focus-visible:ring-gold-700 peer-focus-visible:ring-offset-2">Custom</span>
+                  </label>
+                </div>
+                <div id="customGoalWrap" class="mt-4 max-w-xs" hidden>
+                  <label for="customGoal" class="block text-sm font-semibold text-slate-900">Custom goal</label>
+                  <div class="relative mt-1.5">
+                    <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-slate-500" aria-hidden="true">$</span>
+                    <input
+                      id="customGoal"
+                      name="customGoal"
+                      type="text"
+                      inputmode="numeric"
+                      maxlength="9"
+                      placeholder="2500"
+                      aria-describedby="customGoal-error"
+                      class="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-7 pr-3 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 aria-invalid:border-red-500"
+                    />
+                  </div>
+                  <p id="customGoal-error" class="mt-1.5 hidden text-xs font-semibold text-red-700"></p>
+                </div>
+              </fieldset>
+            </section>
+          </div>
+
+          <aside class="min-w-0 lg:sticky lg:top-24">
+            <div class="rounded-2xl border border-slate-200 border-t-4 border-t-gold-500 bg-white p-5 shadow-sm sm:p-6">
+              <h2 class="text-lg font-extrabold text-slate-900">Order Summary</h2>
+              <p id="formAlert" class="mt-4 hidden rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-800" role="alert"></p>
+              <dl class="mt-4 space-y-3 text-sm">
+                <div class="flex items-start justify-between gap-4">
+                  <dt class="text-slate-600">Team Base (5 runners)</dt>
+                  <dd class="shrink-0 font-semibold tabular-nums text-slate-900">$140</dd>
+                </div>
+                <div class="flex items-start justify-between gap-4">
+                  <dt id="additionalLabel" class="text-slate-600">Additional Runners (0 × $28)</dt>
+                  <dd id="additionalCost" class="shrink-0 font-semibold tabular-nums text-slate-900">$0</dd>
+                </div>
+                <div class="flex items-start justify-between gap-4 border-t border-slate-200 pt-3 text-base">
+                  <dt class="font-extrabold text-slate-900">Total Due</dt>
+                  <dd id="summaryTotal" class="shrink-0 font-extrabold tabular-nums text-slate-900">$140</dd>
+                </div>
+              </dl>
+              <p id="summarySavings" class="mt-3 text-sm font-semibold text-gold-800">
+                Your team saves $35 vs. individual entry.
+              </p>
+              <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                Fundraising goal:
+                <span id="summaryGoal" class="font-semibold text-slate-700">No goal set</span>
+                · separate from registration
+              </p>
+              <button
+                type="submit"
+                class="mt-5 w-full rounded-xl bg-gold-500 px-4 py-3.5 text-center text-sm font-bold text-slate-900 shadow-sm transition hover:bg-gold-600 focus-visible:outline-slate-900"
+              >
+                Proceed to Payment / Confirmation →
+              </button>
+              <p class="mt-3 text-xs leading-relaxed text-slate-500">
+                Next you’ll review this roster and total. Card checkout is not
+                connected on this page — pay by email instructions or at Pavilion
+                check-in.
+              </p>
+            </div>
+          </aside>
+        </form>
+
+        <section id="teamConfirmation" class="mt-8 hidden scroll-mt-24" aria-labelledby="confirmationHeading">
+          <div class="rounded-2xl border border-slate-200 border-t-4 border-t-gold-500 bg-white p-5 shadow-sm sm:p-7">
+            <p class="eyebrow">Payment &amp; confirmation</p>
+            <h2 id="confirmationHeading" tabindex="-1" class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900">
+              Confirmation
+            </h2>
+            <p class="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
+              Your team roster and total are ready. Email them to finish payment,
+              or bring this summary to the Pavilion check-in tent on race morning.
+              Cards and mobile pay are accepted there.
+            </p>
+
+            <dl class="mt-6 grid gap-4 text-sm sm:grid-cols-2">
+              <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <dt class="text-xs font-bold uppercase tracking-wider text-slate-500">Team / Group</dt>
+                <dd id="confirmationTeam" class="mt-1 text-base font-extrabold text-slate-900"></dd>
+              </div>
+              <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <dt class="text-xs font-bold uppercase tracking-wider text-slate-500">Team captain</dt>
+                <dd id="confirmationCaptain" class="mt-1 font-extrabold text-slate-900"></dd>
+                <dd id="confirmationEmail" class="mt-1 text-slate-600"></dd>
+                <dd id="confirmationPhone" class="text-slate-600"></dd>
+              </div>
+            </dl>
+
+            <h3 class="mt-8 text-lg font-extrabold text-slate-900">Runner Roster</h3>
+            <ul id="confirmationRoster" class="mt-3 space-y-3"></ul>
+
+            <div class="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <h3 class="text-lg font-extrabold text-slate-900">Order Summary</h3>
+              <dl class="mt-4 space-y-3 text-sm">
+                <div class="flex items-start justify-between gap-4">
+                  <dt class="text-slate-600">Team Base (5 runners)</dt>
+                  <dd class="shrink-0 font-semibold tabular-nums text-slate-900">$140</dd>
+                </div>
+                <div class="flex items-start justify-between gap-4">
+                  <dt id="confirmationAdditionalLabel" class="text-slate-600">Additional Runners (0 × $28)</dt>
+                  <dd id="confirmationAdditionalCost" class="shrink-0 font-semibold tabular-nums text-slate-900">$0</dd>
+                </div>
+                <div class="flex items-start justify-between gap-4 border-t border-slate-200 pt-3 text-base">
+                  <dt class="font-extrabold text-slate-900">Total Due</dt>
+                  <dd id="confirmationTotal" class="shrink-0 text-2xl font-extrabold tabular-nums text-slate-900">$140</dd>
+                </div>
+              </dl>
+              <p id="confirmationSavings" class="mt-3 inline-block rounded-full bg-gold-100 px-3 py-1.5 text-sm font-semibold text-gold-900 ring-1 ring-inset ring-gold-300"></p>
+              <p class="mt-3 text-sm text-slate-600">
+                Fundraising goal:
+                <span id="confirmationGoal" class="font-semibold text-slate-900"></span>
+                <span class="text-slate-500">· separate from registration</span>
+              </p>
+            </div>
+
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a
+                id="emailRoster"
+                href="mailto:info@hopecopeheal.org"
+                class="inline-flex items-center justify-center rounded-xl bg-gold-500 px-4 py-3.5 text-center text-sm font-bold text-slate-900 shadow-sm transition hover:bg-gold-600"
+                >Email this roster to finish payment</a
+              >
+              <button
+                type="button"
+                id="editRegistration"
+                class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-bold text-slate-800 shadow-sm hover:bg-slate-50"
+              >
+                Edit registration
+              </button>
+              <a
+                href="../../index.html#races"
+                class="inline-flex items-center justify-center rounded-xl px-4 py-3.5 text-sm font-semibold text-slate-600 hover:text-slate-900"
+                >← Back to all race options</a
+              >
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="section-shell flex flex-col gap-2 py-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>© 2027 Hope. Cope. Heal.</p>
+        <p>
+          <a class="font-semibold text-slate-600 underline underline-offset-2 hover:text-slate-900" href="mailto:info@hopecopeheal.org"
+            >info@hopecopeheal.org</a
+          >
+          · Saturday, March 27, 2027 · Frisco Commons Park
+        </p>
+      </div>
+    </footer>
+
+    <script src="../../assets/team-register.js" defer></script>
+    <script src="../../assets/theme.js" defer></script>
+  </body>
+</html>
