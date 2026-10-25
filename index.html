@@ -52,10 +52,7 @@
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F172A'/%3E%3Cpath d='M16 6c2.4 1.8 4 4.6 4 7.4 0 2.2-1.2 3.6-2.6 4.2 1.6.5 2.8 2 2.8 3.8 0 2.3-2 4.2-4.2 4.2S12 23.7 12 21.4c0-1.8 1.2-3.3 2.8-3.8C13.4 17 12.2 15.6 12.2 13.4 12.2 10.6 13.8 7.8 16 6z' fill='%23F59E0B'/%3E%3C/svg%3E"
-    />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="stylesheet" href="assets/styles.css" />
 
     <script type="application/ld+json">
@@ -103,37 +100,27 @@
     >
       <div class="section-shell">
         <div
-          class="grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-2 sm:h-[4.25rem] sm:gap-3 lg:grid-cols-[1fr_auto_1fr]"
+          class="grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-2 sm:h-24 sm:gap-3 lg:grid-cols-[1fr_auto_1fr]"
         >
           <a
             href="#top"
-            class="flex min-w-0 items-center gap-2 justify-self-start sm:gap-2.5"
+            class="flex min-w-0 items-center justify-self-start"
             aria-label="Hope. Cope. Heal. home"
           >
-            <span
-              class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-gold-50 ring-1 ring-inset ring-gold-200 sm:h-9 sm:w-9"
-              aria-hidden="true"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                class="h-4 w-4 fill-gold-600 sm:h-5 sm:w-5"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 3.2c1.9 1.5 3.2 3.8 3.2 6.2 0 1.7-.8 2.9-2 3.5 1.4.5 2.4 1.8 2.4 3.4 0 2.1-1.7 3.7-3.6 3.7S8.4 18.4 8.4 16.3c0-1.6 1-2.9 2.4-3.4-1.2-.6-2-1.8-2-3.5 0-2.4 1.3-4.7 3.2-6.2z"
-                />
-              </svg>
-            </span>
-            <span class="min-w-0 leading-tight">
-              <span
-                class="block truncate text-[13px] font-bold tracking-tight text-slate-900 sm:text-[15px]"
-                >Hope. Cope. Heal.</span
-              >
-              <span
-                class="block truncate text-[10px] font-medium tracking-wide text-slate-500 sm:text-[11px]"
-                >5K · 10K · Family Festival</span
-              >
-            </span>
+            <img
+              src="assets/logo-light.png"
+              alt=""
+              width="1024"
+              height="430"
+              class="brand-logo-light h-14 w-auto max-w-[11.5rem] object-contain object-left sm:h-[4.5rem] sm:max-w-[16rem]"
+            />
+            <img
+              src="assets/logo-dark.png"
+              alt=""
+              width="1024"
+              height="430"
+              class="brand-logo-dark hidden h-14 w-auto max-w-[11.5rem] object-contain object-left sm:h-[4.5rem] sm:max-w-[16rem]"
+            />
           </a>
 
           <nav
@@ -655,9 +642,9 @@
               <div
                 class="px-4 pb-5 text-sm leading-relaxed text-slate-600 sm:px-5 sm:pl-29"
               >
-                Chip-timed start at the Starting Chute. Corrals open at 8:45 AM
-                — please self-seed by expected pace. Two aid stations on course
-                with water and electrolytes.
+                Start at the Starting Chute. Corrals open at 8:45 AM — please
+                self-seed by expected pace. Two aid stations on course with
+                water and electrolytes.
               </div>
             </details>
 
@@ -918,7 +905,7 @@
             >
               <span
                 class="self-start rounded-full bg-slateblue-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slateblue-800"
-                >Chip timed</span
+                >Ages 13+</span
               >
               <h3 class="mt-3 text-xl font-extrabold text-slate-900">
                 10K Run
@@ -2709,22 +2696,15 @@
       <div class="section-shell py-14">
         <div class="grid gap-10 lg:grid-cols-4">
           <div class="lg:col-span-2">
-            <div class="flex items-center gap-2.5">
-              <span
-                class="grid h-10 w-10 place-items-center rounded-xl bg-slateblue-700"
-                aria-hidden="true"
-              >
-                <svg viewBox="0 0 24 24" class="h-6 w-6 fill-gold-400">
-                  <path
-                    d="M12 5c2.2 0 4 1.8 4 4 0 3.4-4 6.6-4 6.6S8 12.4 8 9c0-2.2 1.8-4 4-4z"
-                  />
-                  <path d="M9 16l-1.6 4h2.4L12 17zm6 0l1.6 4h-2.4L12 17z" />
-                </svg>
-              </span>
-              <span class="text-lg font-extrabold text-white"
-                >Hope. Cope. Heal.</span
-              >
-            </div>
+            <a href="#top" class="inline-block max-w-full" aria-label="Hope. Cope. Heal. home">
+              <img
+                src="assets/logo-dark.png"
+                alt="Hope. Cope. Heal. Childhood Cancer Mental Health Support"
+                width="1024"
+                height="430"
+                class="h-24 w-auto max-w-full sm:h-28"
+              />
+            </a>
             <p class="mt-4 max-w-md text-sm leading-relaxed text-slate-400">
               Mental health counseling and therapy services for pediatric cancer
               patients, their siblings, and their caregivers across North Texas.
