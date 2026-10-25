@@ -34,7 +34,8 @@ export async function GET(request, { params }) {
   }
   if (!isAuthed(request)) return redirect("/admin/tributes");
 
-  const id = String(params?.id || "");
+  const resolved = await params;
+  const id = String(resolved?.id || "");
   if (!/^[1-9]\d{0,17}$/.test(id)) {
     return html(renderMessage("That tribute sign could not be found."), 404);
   }
