@@ -4,15 +4,19 @@
   "private": true,
   "description": "Single-page event site for the Hope. Cope. Heal. Inaugural 5K, 10K & Family Festival",
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./assets/styles.css --minify",
+    "build": "next build",
     "dev": "tailwindcss -i ./src/input.css -o ./assets/styles.css --watch",
-    "serve": "npx --yes serve ."
+    "serve": "npx --yes serve .",
+    "start": "next start"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.13",
     "tailwindcss": "^4.1.13"
   },
   "dependencies": {
-    "puppeteer-core": "^25.11.0"
+    "next": "^14.2.35",
+    "puppeteer-core": "^25.11.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

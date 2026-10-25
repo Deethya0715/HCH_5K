@@ -2,3 +2,6 @@ node_modules/
 shots/
 .tmp-screens/
 .DS_Store
+.next/
+public/assets/
+public/register/
