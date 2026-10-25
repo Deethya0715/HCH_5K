@@ -135,4 +135,94 @@
     setInterval(renderCountdown, 30000);
   }
 
+  /* ---------- Discreet organizer sign-in ---------- */
+  var adminKeyOpen = document.getElementById('adminKeyOpen');
+  var adminKeyDialog = document.getElementById('adminKeyDialog');
+  var adminKeyForm = document.getElementById('adminKeyForm');
+  var adminKeyError = document.getElementById('adminKeyError');
+  var adminKeyPassword = document.getElementById('adminKeyPassword');
+  var adminKeySubmit = document.getElementById('adminKeySubmit');
+  var adminKeyCancel = document.getElementById('adminKeyCancel');
+
+  function showAdminError(message) {
+    if (!adminKeyError) return;
+    adminKeyError.textContent = message || '';
+    adminKeyError.hidden = !message;
+  }
+
+  function openAdminPrompt() {
+    if (!adminKeyDialog || typeof adminKeyDialog.showModal !== 'function') {
+      window.location.assign('/admin/tributes');
+      return;
+    }
+    showAdminError('');
+    if (adminKeyPassword) adminKeyPassword.value = '';
+    if (!adminKeyDialog.open) adminKeyDialog.showModal();
+    if (adminKeyPassword) adminKeyPassword.focus();
+  }
+
+  if (adminKeyOpen) {
+    adminKeyOpen.addEventListener('click', openAdminPrompt);
+  }
+
+  if (adminKeyCancel && adminKeyDialog) {
+    adminKeyCancel.addEventListener('click', function () {
+      adminKeyDialog.close();
+    });
+  }
+
+  if (adminKeyDialog) {
+    adminKeyDialog.addEventListener('click', function (event) {
+      if (event.target === adminKeyDialog) adminKeyDialog.close();
+    });
+    adminKeyDialog.addEventListener('close', function () {
+      showAdminError('');
+      if (adminKeySubmit) adminKeySubmit.disabled = false;
+    });
+  }
+
+  if (adminKeyForm) {
+    adminKeyForm.addEventListener('submit', function (event) {
+      if (!window.fetch || !window.FormData) return;
+      event.preventDefault();
+      showAdminError('');
+      if (adminKeySubmit) adminKeySubmit.disabled = true;
+
+      fetch(adminKeyForm.action, {
+        method: 'POST',
+        body: new FormData(adminKeyForm),
+        credentials: 'same-origin',
+        redirect: 'follow',
+      })
+        .then(function (response) {
+          var onAdmin = response.url && response.url.indexOf('/admin/tributes') !== -1;
+          if (response.type === 'opaqueredirect' || (response.ok && onAdmin)) {
+            window.location.assign('/admin/tributes');
+            return;
+          }
+          if (response.status === 401) {
+            showAdminError('That password is not correct.');
+            return;
+          }
+          if (response.status === 429) {
+            showAdminError('Too many attempts. Try again in a few minutes.');
+            return;
+          }
+          if (response.status === 503) {
+            showAdminError('Admin access is not configured.');
+            return;
+          }
+          showAdminError('Sign-in could not be completed. Try again in a moment.');
+        })
+        .catch(function () {
+          adminKeyForm.submit();
+        })
+        .then(function () {
+          if (adminKeySubmit && (!adminKeyDialog || adminKeyDialog.open)) {
+            adminKeySubmit.disabled = false;
+          }
+        });
+    });
+  }
+
 })();

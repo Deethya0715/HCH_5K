@@ -1,13 +1,13 @@
 (function () {
   'use strict';
 
-  /* Team bundle: $140 covers the first 5 runners.
-     Each runner above 5 adds $28. Individual entry is $35,
+  /* Team bundle: $56 covers the first 2 runners at the $28 team rate.
+     Each runner above 2 adds $28. Individual entry is $35,
      so savings are (runners × 35) − total. */
-  var MIN_RUNNERS = 5;
+  var MIN_RUNNERS = 2;
   var MAX_RUNNERS = 25;
-  var BASE_PRICE = 140;
   var RUNNER_PRICE = 28;
+  var BASE_PRICE = MIN_RUNNERS * RUNNER_PRICE;
   var STANDARD_PRICE = 35;
 
   var SHIRTS = [
@@ -429,7 +429,7 @@
 
     lines.push(
       '',
-      'Team Base (5 runners): $140',
+      'Team Base (' + MIN_RUNNERS + ' runners): ' + money(BASE_PRICE),
       'Additional Runners (' + pricing.additional + ' × $28): ' + money(pricing.additionalCost),
       'Total Due: ' + money(pricing.totalCost),
       '',

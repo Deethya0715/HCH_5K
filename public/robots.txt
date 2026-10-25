@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/tributes/photos/
 
 Sitemap: https://hopecopeheal.vercel.app/sitemap.xml

@@ -180,7 +180,7 @@
           </p>
         </noscript>
 
-        <form id="tributeForm" class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start" novalidate>
+        <form id="tributeForm" class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start" enctype="multipart/form-data" novalidate>
           <div class="min-w-0 space-y-6">
             <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="contact-heading">
               <h2 id="contact-heading" class="text-lg font-extrabold text-slate-900">Your contact</h2>
@@ -276,6 +276,25 @@
                   <p id="heroName-error" class="mt-1.5 hidden text-xs font-semibold text-red-700"></p>
                 </div>
 
+                <div>
+                  <label for="heroPhoto" class="block text-sm font-semibold text-slate-900">Hero's photo <span class="font-medium text-slate-500">(required)</span></label>
+                  <input
+                    id="heroPhoto"
+                    name="heroPhoto"
+                    type="file"
+                    accept="image/png,image/jpeg,.png,.jpg,.jpeg"
+                    required
+                    aria-required="true"
+                    aria-describedby="heroPhoto-hint heroPhoto-error"
+                    class="mt-1.5 block w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm file:mr-3 file:rounded-lg file:border-0 file:bg-gold-100 file:px-3 file:py-1.5 file:text-sm file:font-bold file:text-slate-900 aria-invalid:border-red-500"
+                  />
+                  <p id="heroPhoto-hint" class="mt-1.5 text-xs text-slate-500">
+                    A clear PNG, JPG, or JPEG photo for the sign, up to 4 MB.
+                  </p>
+                  <p id="heroPhoto-error" class="mt-1.5 hidden text-xs font-semibold text-red-700"></p>
+                  <img id="heroPhotoPreview" alt="" hidden class="mt-3 h-28 w-28 rounded-xl border border-slate-200 object-cover" />
+                </div>
+
                 <fieldset>
                   <legend class="text-sm font-semibold text-slate-900">Ribbon</legend>
                   <div class="mt-2 grid gap-2 sm:grid-cols-3">
@@ -342,36 +361,21 @@
                 </div>
 
                 <div>
-                  <label for="photoUrl" class="block text-sm font-semibold text-slate-900">Photo link <span class="font-medium text-slate-500">(optional)</span></label>
+                  <label for="qrLink" class="block text-sm font-semibold text-slate-900">QR code link <span class="font-medium text-slate-500">(optional)</span></label>
                   <input
-                    id="photoUrl"
-                    name="photoUrl"
+                    id="qrLink"
+                    name="qrLink"
                     type="url"
                     inputmode="url"
                     maxlength="300"
-                    placeholder="https://"
-                    aria-describedby="photoUrl-hint photoUrl-error"
+                    placeholder="https://www.caringbridge.org/..."
+                    aria-describedby="qrLink-hint qrLink-error"
                     class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 aria-invalid:border-red-500"
                   />
-                  <p id="photoUrl-hint" class="mt-1.5 text-xs text-slate-500">
-                    Or leave this blank and attach a clear photo when the confirmation email opens.
+                  <p id="qrLink-hint" class="mt-1.5 text-xs text-slate-500">
+                    CaringBridge, Meal Train, GoFundMe, or any https link. If you add one, it is printed as a scannable QR code.
                   </p>
-                  <p id="photoUrl-error" class="mt-1.5 hidden text-xs font-semibold text-red-700"></p>
-                </div>
-
-                <div>
-                  <label for="caringBridge" class="block text-sm font-semibold text-slate-900">CaringBridge or meal train <span class="font-medium text-slate-500">(optional)</span></label>
-                  <input
-                    id="caringBridge"
-                    name="caringBridge"
-                    type="url"
-                    inputmode="url"
-                    maxlength="300"
-                    placeholder="https://"
-                    aria-describedby="caringBridge-error"
-                    class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 aria-invalid:border-red-500"
-                  />
-                  <p id="caringBridge-error" class="mt-1.5 hidden text-xs font-semibold text-red-700"></p>
+                  <p id="qrLink-error" class="mt-1.5 hidden text-xs font-semibold text-red-700"></p>
                 </div>
               </div>
             </section>
@@ -443,6 +447,10 @@
               <p id="formAlert" class="mt-4 hidden rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-800" role="alert"></p>
               <dl class="mt-4 space-y-3 text-sm">
                 <div class="flex items-start justify-between gap-4">
+                  <dt class="text-slate-600">Photo</dt>
+                  <dd id="summaryPhoto" class="max-w-[12rem] text-right font-semibold text-slate-900">Required</dd>
+                </div>
+                <div class="flex items-start justify-between gap-4">
                   <dt class="text-slate-600">Ribbon</dt>
                   <dd id="summaryRibbon" class="max-w-[12rem] text-right font-semibold text-slate-900">Not chosen</dd>
                 </div>
@@ -463,8 +471,8 @@
                 Review dedication →
               </button>
               <p class="mt-3 text-xs leading-relaxed text-slate-500">
-                Next you’ll review this dedication. Card checkout is not connected
-                on this page — a $40 sponsor sign is paid by the email instructions
+                Next you’ll review this dedication, then save it. Card checkout is not
+                connected on this page — a $40 sponsor sign is paid by the instructions
                 we send back, or at Pavilion check-in.
               </p>
             </div>
@@ -473,13 +481,12 @@
 
         <section id="tributeConfirmation" class="mt-8 hidden scroll-mt-24" aria-labelledby="confirmationHeading">
           <div class="rounded-2xl border border-slate-200 border-t-4 border-t-gold-500 bg-white p-5 shadow-sm sm:p-7">
-            <p class="eyebrow">Ready to send</p>
+            <p id="confirmationEyebrow" class="eyebrow">Ready to send</p>
             <h2 id="confirmationHeading" tabindex="-1" class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900">
               Review your tribute sign
             </h2>
-            <p class="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
-              Email this dedication to finish it. Attach a clear photo of your hero,
-              and a logo file if this is a sponsor sign.
+            <p id="confirmationIntro" class="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">
+              Submit this dedication, including the hero photo, to save it for the tribute trail.
             </p>
 
             <dl class="mt-6 grid gap-4 text-sm sm:grid-cols-2">
@@ -493,6 +500,9 @@
                 <dt class="text-xs font-bold uppercase tracking-wider text-slate-500">Hero</dt>
                 <dd id="confirmationHero" class="mt-1 text-base font-extrabold text-slate-900"></dd>
                 <dd id="confirmationRibbon" class="mt-1 text-slate-600"></dd>
+                <dd class="mt-3">
+                  <img id="confirmationPhoto" alt="" hidden class="h-28 w-28 rounded-xl border border-slate-200 object-cover" />
+                </dd>
               </div>
             </dl>
 
@@ -500,6 +510,10 @@
 
             <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <dl class="space-y-3 text-sm">
+                <div class="flex items-start justify-between gap-4">
+                  <dt class="text-slate-600">QR code link</dt>
+                  <dd id="confirmationQr" class="max-w-[16rem] break-all text-right font-semibold text-slate-900"></dd>
+                </div>
                 <div class="flex items-start justify-between gap-4">
                   <dt class="text-slate-600">Dedication</dt>
                   <dd id="confirmationType" class="max-w-[16rem] text-right font-semibold text-slate-900"></dd>
@@ -511,12 +525,21 @@
               </dl>
             </div>
 
+            <p id="submitError" class="mt-6 hidden rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-800" role="alert"></p>
             <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <button
+                type="button"
+                id="submitDedication"
+                class="inline-flex items-center justify-center rounded-xl bg-gold-500 px-4 py-3.5 text-center text-sm font-bold text-slate-900 shadow-sm transition hover:bg-gold-600 disabled:cursor-wait disabled:opacity-70"
+              >
+                Submit dedication
+              </button>
               <a
-                id="emailDedication"
+                id="emailPhoto"
                 href="mailto:info@hopecopeheal.org"
-                class="inline-flex items-center justify-center rounded-xl bg-gold-500 px-4 py-3.5 text-center text-sm font-bold text-slate-900 shadow-sm transition hover:bg-gold-600"
-                >Email this dedication</a
+                hidden
+                class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-center text-sm font-bold text-slate-800 shadow-sm hover:bg-slate-50"
+                >Email the photo</a
               >
               <button
                 type="button"
