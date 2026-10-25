@@ -5,3 +5,6 @@ shots/
 .next/
 public/assets/
 public/register/
+.env
+.env.*
+!.env.example

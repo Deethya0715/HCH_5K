@@ -31,26 +31,59 @@
       })();
     </script>
     <title>
-      Hope. Cope. Heal. Inaugural 5K, 10K &amp; Family Festival | March 27, 2027
-      | Frisco, TX
+      Hope. Cope. Heal. Inaugural 5K, 10K &amp; Family Festival | Frisco, TX
     </title>
     <meta
       name="description"
-      content="Join the Hope. Cope. Heal. Inaugural 5K, 10K &amp; Family Festival on Saturday, March 27, 2027 at Frisco Commons Park. Race, walk, and give to furnish our pediatric therapy playroom and clinical suite."
+      content="Join us on March 27, 2027 at Frisco Commons Park for the Hope. Cope. Heal. 5K, 10K, and Family Festival supporting pediatric cancer mental health and our therapy playroom build-out."
     />
-    <link rel="canonical" href="https://hopecopeheal.org/5k" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://hopecopeheal.vercel.app/" />
 
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hope. Cope. Heal." />
+    <meta property="og:url" content="https://hopecopeheal.vercel.app/" />
+    <meta property="og:locale" content="en_US" />
     <meta
       property="og:title"
-      content="Hope. Cope. Heal. Inaugural 5K, 10K &amp; Family Festival"
+      content="Hope. Cope. Heal. Inaugural 5K, 10K &amp; Family Festival | Frisco, TX"
     />
     <meta
       property="og:description"
-      content="Saturday, March 27, 2027 · 7:30 AM – 4:30 PM · Frisco Commons Park. Run, walk, and help furnish a pediatric therapy playroom."
+      content="Join us on March 27, 2027 at Frisco Commons Park for the Hope. Cope. Heal. 5K, 10K, and Family Festival supporting pediatric cancer mental health and our therapy playroom build-out."
     />
-    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:image"
+      content="https://hopecopeheal.vercel.app/assets/og-image.png"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://hopecopeheal.vercel.app/assets/og-image.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Hope. Cope. Heal. Inaugural 5K, 10K and Family Festival on March 27, 2027 at Frisco Commons Park in Frisco, Texas."
+    />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Hope. Cope. Heal. Inaugural 5K, 10K &amp; Family Festival | Frisco, TX"
+    />
+    <meta
+      name="twitter:description"
+      content="Join us on March 27, 2027 at Frisco Commons Park for the Hope. Cope. Heal. 5K, 10K, and Family Festival supporting pediatric cancer mental health and our therapy playroom build-out."
+    />
+    <meta
+      name="twitter:image"
+      content="https://hopecopeheal.vercel.app/assets/og-image.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Hope. Cope. Heal. Inaugural 5K, 10K and Family Festival on March 27, 2027 at Frisco Commons Park in Frisco, Texas."
+    />
 
     <link rel="icon" type="image/png" href="assets/favicon.png" />
     <link rel="stylesheet" href="assets/styles.css" />
@@ -82,7 +115,9 @@
           "email": "info@hopecopeheal.org",
           "url": "https://hopecopeheal.org"
         },
-        "description": "A 5K, 10K, kids' dash and family festival benefiting mental health and therapy services for pediatric cancer patients and their families."
+        "url": "https://hopecopeheal.vercel.app/",
+        "image": "https://hopecopeheal.vercel.app/assets/og-image.png",
+        "description": "Join us on March 27, 2027 at Frisco Commons Park for the Hope. Cope. Heal. 5K, 10K, and Family Festival supporting pediatric cancer mental health and our therapy playroom build-out."
       }
     </script>
   </head>
@@ -195,9 +230,12 @@
               </svg>
             </button>
             <a
-              href="#races"
+              data-hch-link="HCH_REGISTER_URL"
+              href="https://example.com/hch/register"
+              target="_blank"
+              rel="noopener noreferrer"
               class="hidden rounded-full bg-gold-500 px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-gold-600 lg:inline-flex"
-              >Register to Run</a
+              >Register to Run<span class="sr-only"> (opens in a new tab)</span></a
             >
             <button
               type="button"
@@ -280,9 +318,12 @@
               >Volunteer &amp; Contact</a
             >
             <a
-              href="#races"
+              data-hch-link="HCH_REGISTER_URL"
+              href="https://example.com/hch/register"
+              target="_blank"
+              rel="noopener noreferrer"
               class="js-mobile-link mt-2 w-full rounded-full bg-gold-500 px-4 py-3.5 text-center text-base font-semibold text-slate-900 shadow-sm hover:bg-gold-600"
-              >Register to Run</a
+              >Register to Run<span class="sr-only"> (opens in a new tab)</span></a
             >
           </nav>
         </div>
@@ -389,14 +430,25 @@
             </p>
           </div>
 
+          <!--
+            Registration, donation, and wishlist hrefs below are placeholder
+            link variables. Set HCH_REGISTER_URL, HCH_DONATE_URL,
+            HCH_WISHLIST_EVENT_OPS_URL, HCH_WISHLIST_AMAZON_TARGET_URL, and
+            HCH_WISHLIST_COSTCO_VISA_URL to a Zelle, Venmo, Stripe, RunSignup,
+            or wishlist link. See .env.example.
+          -->
           <div
             class="mt-8 flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap"
           >
             <a
-              href="#races"
+              data-hch-link="HCH_REGISTER_URL"
+              href="https://example.com/hch/register"
+              target="_blank"
+              rel="noopener noreferrer"
               class="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold-500 px-6 py-3.5 text-center text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-gold-600 sm:w-auto"
             >
               Register to Run
+              <span class="sr-only">(opens in a new tab)</span>
               <svg
                 viewBox="0 0 24 24"
                 class="h-4 w-4 transition group-hover:translate-x-0.5"
@@ -409,10 +461,14 @@
               </svg>
             </a>
             <a
-              href="#give"
+              data-hch-link="HCH_DONATE_URL"
+              href="https://example.com/hch/donate"
+              target="_blank"
+              rel="noopener noreferrer"
               class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3.5 text-center text-sm font-semibold text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md sm:w-auto"
             >
               Donate to Therapy Playroom
+              <span class="sr-only">(opens in a new tab)</span>
               <span class="text-gold-600" aria-hidden="true">♡</span>
             </a>
           </div>
@@ -517,7 +573,7 @@
                 kid.
               </p>
             </div>
-            <ul class="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-1">
+            <ul class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-1">
               <li class="rounded-2xl border border-slate-200 bg-white p-5">
                 <p class="text-3xl font-extrabold text-slateblue-700">100%</p>
                 <p class="mt-1 text-sm font-medium text-slate-600">
@@ -587,18 +643,18 @@
           >
             <details class="group" open>
               <summary
-                class="flex cursor-pointer list-none items-center gap-4 p-4 hover:bg-slate-50 sm:p-5"
+                class="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 hover:bg-slate-50 sm:flex-nowrap sm:gap-4 sm:p-5"
               >
                 <span
-                  class="w-20 shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:w-24 sm:text-base"
+                  class="order-1 w-auto shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:order-none sm:w-24 sm:text-base"
                   >7:30 AM</span
                 >
-                <span class="flex-1 text-base font-bold text-slate-900"
+                <span class="order-3 min-w-0 basis-full text-base font-bold text-slate-900 sm:order-none sm:flex-1 sm:basis-auto"
                   >Check-in, Bib Pickup &amp; Festival Lawn Opens</span
                 >
                 <svg
                   viewBox="0 0 24 24"
-                  class="h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180"
+                  class="order-2 ml-auto h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180 sm:order-none sm:ml-0"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.2"
@@ -619,18 +675,18 @@
 
             <details class="group">
               <summary
-                class="flex cursor-pointer list-none items-center gap-4 p-4 hover:bg-slate-50 sm:p-5"
+                class="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 hover:bg-slate-50 sm:flex-nowrap sm:gap-4 sm:p-5"
               >
                 <span
-                  class="w-20 shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:w-24 sm:text-base"
+                  class="order-1 w-auto shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:order-none sm:w-24 sm:text-base"
                   >9:00 AM</span
                 >
-                <span class="flex-1 text-base font-bold text-slate-900"
+                <span class="order-3 min-w-0 basis-full text-base font-bold text-slate-900 sm:order-none sm:flex-1 sm:basis-auto"
                   >10K Race Kickoff</span
                 >
                 <svg
                   viewBox="0 0 24 24"
-                  class="h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180"
+                  class="order-2 ml-auto h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180 sm:order-none sm:ml-0"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.2"
@@ -650,18 +706,18 @@
 
             <details class="group">
               <summary
-                class="flex cursor-pointer list-none items-center gap-4 p-4 hover:bg-slate-50 sm:p-5"
+                class="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 hover:bg-slate-50 sm:flex-nowrap sm:gap-4 sm:p-5"
               >
                 <span
-                  class="w-20 shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:w-24 sm:text-base"
+                  class="order-1 w-auto shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:order-none sm:w-24 sm:text-base"
                   >9:30 AM</span
                 >
-                <span class="flex-1 text-base font-bold text-slate-900"
+                <span class="order-3 min-w-0 basis-full text-base font-bold text-slate-900 sm:order-none sm:flex-1 sm:basis-auto"
                   >5K Race Kickoff</span
                 >
                 <svg
                   viewBox="0 0 24 24"
-                  class="h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180"
+                  class="order-2 ml-auto h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180 sm:order-none sm:ml-0"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.2"
@@ -681,18 +737,18 @@
 
             <details class="group">
               <summary
-                class="flex cursor-pointer list-none items-center gap-4 p-4 hover:bg-slate-50 sm:p-5"
+                class="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 hover:bg-slate-50 sm:flex-nowrap sm:gap-4 sm:p-5"
               >
                 <span
-                  class="w-20 shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:w-24 sm:text-base"
+                  class="order-1 w-auto shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:order-none sm:w-24 sm:text-base"
                   >11:00 AM</span
                 >
-                <span class="flex-1 text-base font-bold text-slate-900"
+                <span class="order-3 min-w-0 basis-full text-base font-bold text-slate-900 sm:order-none sm:flex-1 sm:basis-auto"
                   >Food Trucks &amp; Touch-a-Truck Open</span
                 >
                 <svg
                   viewBox="0 0 24 24"
-                  class="h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180"
+                  class="order-2 ml-auto h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180 sm:order-none sm:ml-0"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.2"
@@ -713,18 +769,18 @@
 
             <details class="group">
               <summary
-                class="flex cursor-pointer list-none items-center gap-4 p-4 hover:bg-slate-50 sm:p-5"
+                class="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 hover:bg-slate-50 sm:flex-nowrap sm:gap-4 sm:p-5"
               >
                 <span
-                  class="w-20 shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:w-24 sm:text-base"
+                  class="order-1 w-auto shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:order-none sm:w-24 sm:text-base"
                   >11:30 AM</span
                 >
-                <span class="flex-1 text-base font-bold text-slate-900"
+                <span class="order-3 min-w-0 basis-full text-base font-bold text-slate-900 sm:order-none sm:flex-1 sm:basis-auto"
                   >Kids' 1-Mile Fun Run &amp; Stroller/Family Care Walk</span
                 >
                 <svg
                   viewBox="0 0 24 24"
-                  class="h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180"
+                  class="order-2 ml-auto h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180 sm:order-none sm:ml-0"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.2"
@@ -745,18 +801,18 @@
 
             <details class="group">
               <summary
-                class="flex cursor-pointer list-none items-center gap-4 p-4 hover:bg-slate-50 sm:p-5"
+                class="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 hover:bg-slate-50 sm:flex-nowrap sm:gap-4 sm:p-5"
               >
                 <span
-                  class="w-20 shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:w-24 sm:text-base"
+                  class="order-1 w-auto shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:order-none sm:w-24 sm:text-base"
                   >12:15 PM</span
                 >
-                <span class="flex-1 text-base font-bold text-slate-900"
+                <span class="order-3 min-w-0 basis-full text-base font-bold text-slate-900 sm:order-none sm:flex-1 sm:basis-auto"
                   >Junior Firefighter &amp; Police Officer Badge Ceremony</span
                 >
                 <svg
                   viewBox="0 0 24 24"
-                  class="h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180"
+                  class="order-2 ml-auto h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180 sm:order-none sm:ml-0"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.2"
@@ -777,18 +833,18 @@
 
             <details class="group">
               <summary
-                class="flex cursor-pointer list-none items-center gap-4 p-4 hover:bg-slate-50 sm:p-5"
+                class="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 hover:bg-slate-50 sm:flex-nowrap sm:gap-4 sm:p-5"
               >
                 <span
-                  class="w-20 shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:w-24 sm:text-base"
+                  class="order-1 w-auto shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:order-none sm:w-24 sm:text-base"
                   >1:00 PM</span
                 >
-                <span class="flex-1 text-base font-bold text-slate-900"
+                <span class="order-3 min-w-0 basis-full text-base font-bold text-slate-900 sm:order-none sm:flex-1 sm:basis-auto"
                   >Family Workshop, Games Zone &amp; Festival Activities</span
                 >
                 <svg
                   viewBox="0 0 24 24"
-                  class="h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180"
+                  class="order-2 ml-auto h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180 sm:order-none sm:ml-0"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.2"
@@ -811,18 +867,18 @@
 
             <details class="group">
               <summary
-                class="flex cursor-pointer list-none items-center gap-4 p-4 hover:bg-slate-50 sm:p-5"
+                class="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 hover:bg-slate-50 sm:flex-nowrap sm:gap-4 sm:p-5"
               >
                 <span
-                  class="w-20 shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:w-24 sm:text-base"
+                  class="order-1 w-auto shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:order-none sm:w-24 sm:text-base"
                   >3:00 PM</span
                 >
-                <span class="flex-1 text-base font-bold text-slate-900"
+                <span class="order-3 min-w-0 basis-full text-base font-bold text-slate-900 sm:order-none sm:flex-1 sm:basis-auto"
                   >Sponsor Recognition &amp; Top Finisher Awards Ceremony</span
                 >
                 <svg
                   viewBox="0 0 24 24"
-                  class="h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180"
+                  class="order-2 ml-auto h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180 sm:order-none sm:ml-0"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.2"
@@ -842,18 +898,18 @@
 
             <details class="group">
               <summary
-                class="flex cursor-pointer list-none items-center gap-4 p-4 hover:bg-slate-50 sm:p-5"
+                class="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 hover:bg-slate-50 sm:flex-nowrap sm:gap-4 sm:p-5"
               >
                 <span
-                  class="w-20 shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:w-24 sm:text-base"
+                  class="order-1 w-auto shrink-0 text-sm font-extrabold tabular-nums text-slateblue-700 sm:order-none sm:w-24 sm:text-base"
                   >4:30 PM</span
                 >
-                <span class="flex-1 text-base font-bold text-slate-900"
+                <span class="order-3 min-w-0 basis-full text-base font-bold text-slate-900 sm:order-none sm:flex-1 sm:basis-auto"
                   >Event Conclusion</span
                 >
                 <svg
                   viewBox="0 0 24 24"
-                  class="h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180"
+                  class="order-2 ml-auto h-5 w-5 shrink-0 text-slate-400 transition group-open:rotate-180 sm:order-none sm:ml-0"
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2.2"
@@ -959,11 +1015,13 @@
                 </li>
               </ul>
               <div class="mt-6 grow"></div>
-              <!-- TODO: swap href for the live RunSignup registration URL before launch -->
               <a
-                href="#register-note"
+                data-hch-link="HCH_REGISTER_URL"
+                href="https://example.com/hch/register"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="rounded-xl bg-slateblue-700 px-4 py-3 text-center text-sm font-bold text-white hover:bg-slateblue-800"
-                >Register for the 10K</a
+                >Register for the 10K<span class="sr-only"> (opens in a new tab)</span></a
               >
             </article>
 
@@ -1027,11 +1085,13 @@
                 </li>
               </ul>
               <div class="mt-6 grow"></div>
-              <!-- TODO: swap href for the live RunSignup registration URL before launch -->
               <a
-                href="#register-note"
+                data-hch-link="HCH_REGISTER_URL"
+                href="https://example.com/hch/register"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="rounded-xl bg-gold-500 px-4 py-3 text-center text-sm font-bold text-gold-950 hover:bg-gold-400"
-                >Register for the 5K</a
+                >Register for the 5K<span class="sr-only"> (opens in a new tab)</span></a
               >
             </article>
 
@@ -1096,11 +1156,13 @@
                 </li>
               </ul>
               <div class="mt-6 grow"></div>
-              <!-- TODO: swap href for the live RunSignup registration URL before launch -->
               <a
-                href="#register-note"
+                data-hch-link="HCH_REGISTER_URL"
+                href="https://example.com/hch/register"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="rounded-xl bg-slateblue-700 px-4 py-3 text-center text-sm font-bold text-white hover:bg-slateblue-800"
-                >Register a young runner</a
+                >Register a young runner<span class="sr-only"> (opens in a new tab)</span></a
               >
             </article>
 
@@ -1165,11 +1227,13 @@
                 </li>
               </ul>
               <div class="mt-6 grow"></div>
-              <!-- TODO: swap href for the live RunSignup registration URL before launch -->
               <a
-                href="#register-note"
+                data-hch-link="HCH_REGISTER_URL"
+                href="https://example.com/hch/register"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="rounded-xl bg-slateblue-700 px-4 py-3 text-center text-sm font-bold text-white hover:bg-slateblue-800"
-                >Register our family</a
+                >Register our family<span class="sr-only"> (opens in a new tab)</span></a
               >
             </article>
           </div>
@@ -1446,9 +1510,7 @@
               </p>
 
               <a
-                href="https://forms.gle/jgNNWQMzupk8DiQi8"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/tribute"
                 class="mt-5 block rounded-xl bg-gold-500 px-4 py-3.5 text-center text-sm font-bold text-gold-950 hover:bg-gold-400"
               >
                 Submit a Hero Tribute Sign
@@ -1520,6 +1582,71 @@
                 carry.
               </p>
             </div>
+          </div>
+
+          <h3
+            class="mt-10 text-sm font-bold uppercase tracking-widest text-slateblue-200"
+          >
+            Wishlists
+          </h3>
+          <div class="mt-4 grid gap-4 lg:grid-cols-3">
+            <a
+              data-hch-link="HCH_WISHLIST_EVENT_OPS_URL"
+              href="https://example.com/hch/wishlist/event-operations"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex h-full flex-col rounded-2xl bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <p class="text-lg font-extrabold text-slate-900">
+                Event Operations &amp; Festival Supply Wishlist
+              </p>
+              <p class="mt-2 grow text-sm leading-relaxed text-slate-600">
+                Course cones, hydration, signage, volunteer supplies, and
+                festival-day materials.
+              </p>
+              <span
+                class="mt-4 text-sm font-bold text-slateblue-800 group-hover:underline"
+                >Open wishlist<span class="sr-only"> (opens in a new tab)</span></span
+              >
+            </a>
+            <a
+              data-hch-link="HCH_WISHLIST_AMAZON_TARGET_URL"
+              href="https://example.com/hch/wishlist/amazon-target"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex h-full flex-col rounded-2xl bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <p class="text-lg font-extrabold text-slate-900">
+                Therapy Room Amazon Wishlist &amp; Target Drive
+              </p>
+              <p class="mt-2 grow text-sm leading-relaxed text-slate-600">
+                Sensory toys, emotion card decks, fidget kits, art supplies,
+                and calm-down corner items.
+              </p>
+              <span
+                class="mt-4 text-sm font-bold text-slateblue-800 group-hover:underline"
+                >Open wishlist<span class="sr-only"> (opens in a new tab)</span></span
+              >
+            </a>
+            <a
+              data-hch-link="HCH_WISHLIST_COSTCO_VISA_URL"
+              href="https://example.com/hch/wishlist/costco-visa"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex h-full flex-col rounded-2xl bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <p class="text-lg font-extrabold text-slate-900">
+                Costco Bulk Item &amp; Visa Gift Card Drive
+              </p>
+              <p class="mt-2 grow text-sm leading-relaxed text-slate-600">
+                Bulk snacks, sanitizing supplies, playroom furniture, and Visa
+                gift cards for specialty clinical items.
+              </p>
+              <span
+                class="mt-4 text-sm font-bold text-slateblue-800 group-hover:underline"
+                >Open wishlist<span class="sr-only"> (opens in a new tab)</span></span
+              >
+            </a>
           </div>
 
           <div class="mt-10 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
@@ -1600,12 +1727,15 @@
                   </p>
                 </li>
               </ul>
-              <!-- TODO: swap href for the live donation processor URL before launch -->
               <a
-                href="mailto:info@hopecopeheal.org?subject=Therapy%20Room%20Gift"
+                data-hch-link="HCH_DONATE_URL"
+                href="https://example.com/hch/donate"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="mt-7 block rounded-xl bg-gold-500 px-4 py-3.5 text-center text-sm font-bold text-gold-950 hover:bg-gold-400"
               >
                 Donate to the therapy room
+                <span class="sr-only">(opens in a new tab)</span>
               </a>
               <p class="mt-3 text-center text-xs text-slateblue-200">
                 Prefer to mail a card? Ask us for the office address.
@@ -2477,7 +2607,7 @@
                 >$5,000+</span
               >
             </div>
-            <ul class="mt-4 grid gap-4 sm:grid-cols-3">
+            <ul class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3">
               <li
                 class="flex min-h-24 items-center justify-center rounded-2xl border border-gold-300 bg-white p-5 text-center text-base font-bold text-slate-900 shadow-sm"
               >
@@ -2509,7 +2639,7 @@
                 >$2,500+</span
               >
             </div>
-            <ul class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <ul class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <li
                 class="flex min-h-20 items-center justify-center rounded-xl border border-slate-200 bg-white p-4 text-center text-sm font-bold text-slate-800"
               >
@@ -2547,7 +2677,7 @@
               >
             </div>
             <ul
-              class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6"
+              class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6"
             >
               <li
                 class="flex min-h-16 items-center justify-center rounded-xl border border-slate-200 bg-white p-3 text-center text-xs font-semibold text-slate-700"
@@ -2754,22 +2884,28 @@
               </li>
               <li>
                 <a
+                  data-hch-link="HCH_REGISTER_URL"
                   class="inline-block py-1.5 text-slate-300 hover:text-white"
-                  href="#races"
-                  >Register for a race</a
+                  href="https://example.com/hch/register"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Register for a race<span class="sr-only"> (opens in a new tab)</span></a
+                >
+              </li>
+              <li>
+                <a
+                  data-hch-link="HCH_DONATE_URL"
+                  class="inline-block py-1.5 text-slate-300 hover:text-white"
+                  href="https://example.com/hch/donate"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Donate a gift card<span class="sr-only"> (opens in a new tab)</span></a
                 >
               </li>
               <li>
                 <a
                   class="inline-block py-1.5 text-slate-300 hover:text-white"
-                  href="#give"
-                  >Donate a gift card</a
-                >
-              </li>
-              <li>
-                <a
-                  class="inline-block py-1.5 text-slate-300 hover:text-white"
-                  href="#heroes"
+                  href="/tribute"
                   >Dedicate a trail sign</a
                 >
               </li>
@@ -2891,14 +3027,20 @@
     >
       <div class="flex gap-2">
         <a
-          href="#races"
+          data-hch-link="HCH_REGISTER_URL"
+          href="https://example.com/hch/register"
+          target="_blank"
+          rel="noopener noreferrer"
           class="flex-1 rounded-full bg-gold-500 px-4 py-3 text-center text-sm font-semibold text-slate-900 shadow-sm"
-          >Register</a
+          >Register<span class="sr-only"> (opens in a new tab)</span></a
         >
         <a
-          href="#give"
+          data-hch-link="HCH_DONATE_URL"
+          href="https://example.com/hch/donate"
+          target="_blank"
+          rel="noopener noreferrer"
           class="flex-1 rounded-full border border-slate-200 bg-white px-4 py-3 text-center text-sm font-semibold text-slate-800 shadow-sm"
-          >Donate</a
+          >Donate<span class="sr-only"> (opens in a new tab)</span></a
         >
         <a
           href="#map"
