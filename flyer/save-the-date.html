@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Save the Date · Hope. Cope. Heal. 5K, 10K &amp; Family Festival</title>
+    <meta
+      name="description"
+      content="Save the date for the Hope. Cope. Heal. Inaugural 5K, 10K and Family Festival on Saturday, March 27, 2027 at Frisco Commons Park."
+    />
+    <!--
+      Print on US Letter at 100% scale with background graphics enabled.
+      QR targets:
+        Register       -> https://hopecopeheal.vercel.app/#races
+        Honor a Hero   -> https://hopecopeheal.vercel.app/#heroes
+      Replace qr-register.svg and qr-tribute.svg if the live URL changes.
+    -->
+    <style>
+      @font-face {
+        font-family: "Barlow Condensed";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("fonts/barlow-condensed-600.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Barlow Condensed";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("fonts/barlow-condensed-700.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Barlow Condensed";
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url("fonts/barlow-condensed-800.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Source Sans 3";
+        font-style: normal;
+        font-weight: 600 700;
+        font-display: swap;
+        src: url("fonts/source-sans-3.woff2") format("woff2");
+      }
+
+      :root {
+        --cream: #fbfbfa;
+        --navy: #0f172a;
+        --slate: #1e293b;
+        --gold: #f59e0b;
+        --gold-ink: #92400e;
+        --ink: #0f172a;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html {
+        color-scheme: light;
+      }
+
+      body {
+        margin: 0;
+        background: #d7d3cb;
+        color: var(--ink);
+        font-family: "Source Sans 3", "Segoe UI", sans-serif;
+      }
+
+      .screen-bar {
+        max-width: 8.5in;
+        margin: 0 auto 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        color: var(--navy);
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .screen-bar p {
+        margin: 0;
+      }
+
+      .screen-bar button {
+        border: 0;
+        background: var(--navy);
+        color: #fff;
+        cursor: pointer;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 9px 16px;
+      }
+
+      .screen-bar button:hover {
+        background: #1e293b;
+      }
+
+      .sheet {
+        width: 8.5in;
+        height: 11in;
+        margin: 0 auto;
+        background: var(--cream);
+        color: var(--ink);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 18px 50px rgba(15, 23, 42, 0.22);
+      }
+
+      .banner {
+        position: relative;
+        text-align: center;
+        color: #fff;
+        background:
+          radial-gradient(ellipse 58% 78% at 100% -8%, rgba(245, 158, 11, 0.28), transparent 54%),
+          radial-gradient(ellipse 42% 55% at 0% 115%, rgba(245, 158, 11, 0.12), transparent 52%),
+          linear-gradient(168deg, #0f172a 0%, #1e293b 52%, #0f172a 100%);
+        padding: 0 0.42in 0.42in;
+      }
+
+      .goldbar {
+        margin: 0 -0.42in 0.2in;
+        background: var(--gold);
+        color: var(--navy);
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 800;
+        font-size: 18pt;
+        letter-spacing: 0.36em;
+        text-indent: 0.36em;
+        text-transform: uppercase;
+        line-height: 1;
+        padding: 0.16in 0.3in 0.11in;
+      }
+
+      .eyebrow {
+        margin: 0;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 700;
+        font-size: 12.5pt;
+        letter-spacing: 0.16em;
+        text-indent: 0.16em;
+        text-transform: uppercase;
+        line-height: 1.1;
+        color: #f8fafc;
+      }
+
+      h1 {
+        margin: 0.08in 0 0;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 800;
+        font-size: 68pt;
+        line-height: 0.84;
+        letter-spacing: -0.012em;
+        color: #fff;
+      }
+
+      .subtitle {
+        margin: 0.1in 0 0;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 600;
+        font-size: 24pt;
+        letter-spacing: 0.045em;
+        line-height: 1;
+        color: var(--gold);
+      }
+
+      .subtitle::after {
+        content: "";
+        display: block;
+        width: 1.25in;
+        height: 0.045in;
+        margin: 0.12in auto 0;
+        background: var(--gold);
+      }
+
+      .body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        padding: 0.2in 0.4in 0.18in;
+      }
+
+      .date-card {
+        display: grid;
+        grid-template-columns: 2.55in 1fr;
+        min-height: 1.42in;
+        margin-top: -0.34in;
+        background: #fff;
+        border: 2px solid var(--navy);
+        box-shadow: 0.055in 0.055in 0 var(--navy);
+        position: relative;
+        z-index: 1;
+      }
+
+      .date-gold {
+        background: var(--gold);
+        color: var(--navy);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0.1in 0.08in 0.1in;
+      }
+
+      .dow,
+      .my,
+      .day,
+      .hours,
+      .kicker,
+      .place,
+      .addr {
+        margin: 0;
+      }
+
+      .dow {
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 800;
+        font-size: 13pt;
+        letter-spacing: 0.22em;
+        text-indent: 0.22em;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+
+      .day {
+        margin-top: 0.01in;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 800;
+        font-size: 60pt;
+        line-height: 0.76;
+      }
+
+      .my {
+        margin-top: 0.03in;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 700;
+        font-size: 14pt;
+        letter-spacing: 0.16em;
+        text-indent: 0.16em;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+
+      .hours {
+        margin-top: 0.06in;
+        font-weight: 700;
+        font-size: 10pt;
+        letter-spacing: 0.03em;
+        line-height: 1;
+      }
+
+      .date-place {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.12in 0.22in 0.12in 0.24in;
+      }
+
+      .kicker {
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 800;
+        font-size: 12pt;
+        letter-spacing: 0.2em;
+        text-indent: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-ink);
+        line-height: 1;
+      }
+
+      .place {
+        margin-top: 0.05in;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 800;
+        font-size: 26pt;
+        line-height: 0.92;
+        letter-spacing: 0.005em;
+        color: var(--navy);
+      }
+
+      .addr {
+        margin-top: 0.06in;
+        font-weight: 600;
+        font-size: 13.5pt;
+        line-height: 1.25;
+        color: var(--slate);
+      }
+
+      .mission {
+        margin: 0.16in 0 0;
+        padding: 0.02in 0 0.02in 0.14in;
+        border-left: 0.06in solid var(--gold);
+        font-weight: 600;
+        font-size: 14.5pt;
+        line-height: 1.36;
+        color: var(--navy);
+      }
+
+      .seal {
+        display: block;
+        width: 2.2in;
+        height: auto;
+        margin: 0.14in auto 0;
+      }
+
+      .badges {
+        list-style: none;
+        margin: auto 0 0;
+        padding: 0.12in 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.08in;
+      }
+
+      .badge {
+        margin: 0;
+        height: 0.48in;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gold);
+        color: var(--navy);
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 800;
+        font-size: 19pt;
+        letter-spacing: 0.015em;
+        line-height: 1;
+        text-align: center;
+        padding: 0 0.36in;
+        clip-path: polygon(
+          0.15in 0,
+          calc(100% - 0.15in) 0,
+          100% 50%,
+          calc(100% - 0.15in) 100%,
+          0.15in 100%,
+          0 50%
+        );
+      }
+
+      .cta {
+        background:
+          radial-gradient(ellipse 48% 90% at 0% 120%, rgba(245, 158, 11, 0.18), transparent 56%),
+          linear-gradient(168deg, #0f172a 0%, #1e293b 58%, #0f172a 100%);
+        color: #fff;
+        padding: 0.15in 0.4in 0.24in;
+        border-top: 0.065in solid var(--gold);
+      }
+
+      .cta h2 {
+        margin: 0;
+        text-align: center;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 800;
+        font-size: 20pt;
+        letter-spacing: 0.08em;
+        text-indent: 0.08em;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+
+      .cta-grid {
+        display: grid;
+        grid-template-columns: 1.46in 1fr 1.46in;
+        gap: 0.14in;
+        align-items: stretch;
+        margin-top: 0.12in;
+      }
+
+      .qr-card,
+      .url-block {
+        background: #fff;
+        border: 2px solid var(--gold);
+        margin: 0;
+      }
+
+      .qr-card {
+        padding: 0.06in 0.06in 0.05in;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .qr-card img {
+        width: 1.12in;
+        height: 1.12in;
+        display: block;
+      }
+
+      .qr-card figcaption {
+        margin-top: 0.03in;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 800;
+        font-size: 9pt;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.05;
+        color: var(--navy);
+      }
+
+      .url-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0.1in 0.12in;
+        gap: 0.05in;
+      }
+
+      .url-kicker {
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 800;
+        font-size: 10pt;
+        letter-spacing: 0.2em;
+        text-indent: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-ink);
+        line-height: 1;
+      }
+
+      .url-block a {
+        color: var(--navy);
+        text-decoration: none;
+        font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+        font-weight: 800;
+        font-size: 20pt;
+        letter-spacing: 0.01em;
+        line-height: 0.95;
+      }
+
+      .url-note {
+        max-width: 3.4in;
+        font-size: 9.5pt;
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--slate);
+      }
+
+      @media screen {
+        body {
+          padding: 22px 16px 40px;
+        }
+      }
+
+      @page {
+        size: letter portrait;
+        margin: 0;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+          padding: 0;
+        }
+
+        .screen-bar {
+          display: none !important;
+        }
+
+        .sheet {
+          margin: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="screen-bar">
+      <p>US Letter · 8.5 × 11 in · Print at 100% with background graphics on.</p>
+      <button type="button" onclick="window.print()">Print flyer</button>
+    </div>
+
+    <article class="sheet" aria-label="Save the Date flyer for the Hope. Cope. Heal. Inaugural 5K, 10K and Family Festival">
+      <header class="banner">
+        <p class="goldbar">Save the Date</p>
+        <p class="eyebrow">Inaugural Community Event · Frisco, Texas</p>
+        <h1>Hope. Cope. Heal.</h1>
+        <p class="subtitle">5K, 10K &amp; Family Festival</p>
+      </header>
+
+      <div class="body">
+        <section class="date-card" aria-label="Date and location">
+          <div class="date-gold">
+            <p class="dow">Saturday</p>
+            <p class="day">27</p>
+            <p class="my">March 2027</p>
+            <p class="hours">7:30 AM – 4:30 PM</p>
+          </div>
+          <div class="date-place">
+            <p class="kicker">Location</p>
+            <p class="place">Frisco Commons Park</p>
+            <p class="addr">8000 McKinney Rd<br />Frisco, Texas</p>
+          </div>
+        </section>
+
+        <p class="mission">
+          One morning of running, one afternoon of celebrating, and one shared
+          goal: furnishing a pediatric therapy playroom and clinical suite where
+          kids facing cancer and their families can process, play, and heal.
+        </p>
+
+        <img
+          class="seal"
+          src="../assets/logo-light.png"
+          width="1024"
+          height="430"
+          alt="Hope. Cope. Heal. Childhood Cancer Mental Health Support"
+        />
+
+        <ul class="badges">
+          <li class="badge">5K &amp; 10K Scenic Runs</li>
+          <li class="badge">Touch-a-Truck &amp; Junior Badge Ceremony</li>
+          <li class="badge">CUTX Food Trucks &amp; Family Festival</li>
+          <li class="badge">Commemorative Tribute Trail</li>
+        </ul>
+      </div>
+
+      <footer class="cta">
+        <h2>Scan to Register &amp; Honor a Hero</h2>
+        <div class="cta-grid">
+          <figure class="qr-card">
+            <img
+              src="qr-register.svg"
+              width="280"
+              height="280"
+              alt="QR code to register at hopecopeheal.vercel.app"
+            />
+            <figcaption>Register</figcaption>
+          </figure>
+          <div class="url-block">
+            <span class="url-kicker">Live site</span>
+            <a href="https://hopecopeheal.vercel.app/">hopecopeheal.vercel.app</a>
+            <span class="url-note">Register to run, or honor a hero on the tribute trail.</span>
+          </div>
+          <figure class="qr-card">
+            <img
+              src="qr-tribute.svg"
+              width="280"
+              height="280"
+              alt="QR code to honor a hero at hopecopeheal.vercel.app"
+            />
+            <figcaption>Honor a Hero</figcaption>
+          </figure>
+        </div>
+      </footer>
+    </article>
+  </body>
+</html>
