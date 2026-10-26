@@ -6,7 +6,7 @@ const webDir = path.join(root, "www");
 
 // Static pages the site serves from disk. Dynamic tribute, photo, and admin
 // routes stay on the Next.js server configured in capacitor.config.ts.
-const entries = ["index.html", "assets", "tribute", "register"];
+const entries = ["index.html", "assets", "tribute", "register", "trail-feed"];
 
 function copyDir(src, dest) {
   fs.mkdirSync(dest, { recursive: true });

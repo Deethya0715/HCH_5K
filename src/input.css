@@ -123,6 +123,77 @@
     max-height: calc(100dvh - 8.5rem);
     overflow-y: auto;
   }
+
+  .trail-scroll {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .trail-choice {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    min-width: 7.5rem;
+    max-width: 11rem;
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    padding: 0.75rem;
+    text-align: left;
+    color: #1e293b;
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.06);
+  }
+
+  .trail-choice > :first-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .trail-choice[aria-pressed="true"] {
+    border-color: #1d4ed8;
+    background: #eff6ff;
+    color: #1e3a8a;
+    box-shadow: inset 0 0 0 1px #1d4ed8;
+  }
+
+  .trail-copy {
+    overflow-wrap: anywhere;
+  }
+
+  .trail-card [data-flag]:hover {
+    text-decoration: underline;
+  }
+
+  .trail-dialog {
+    margin: auto;
+  }
+
+  .trail-dialog::backdrop {
+    background: rgb(15 23 42 / 0.55);
+  }
+
+  .trail-studio-preview {
+    order: 1;
+  }
+
+  .trail-studio-form {
+    order: 2;
+  }
+
+  .col-span-full {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .trail-studio-preview {
+    order: 2;
+  }
+
+  .trail-studio-form {
+    order: 1;
+  }
 }
 
 @utility section-shell {
@@ -417,6 +488,23 @@ html.dark .bg-slateblue-900 .bg-white .text-slateblue-800 {
 
 html.dark .bg-slateblue-900 .bg-white .bg-slate-50 {
   background-color: #f8fafc;
+}
+
+html.dark .trail-choice {
+  background: #222833;
+  border-color: #343d4d;
+  color: #e6ebf2;
+}
+
+html.dark .trail-choice[aria-pressed="true"] {
+  border-color: #60a5fa;
+  background: #1a2744;
+  color: #dbeafe;
+  box-shadow: inset 0 0 0 1px #60a5fa;
+}
+
+html.dark .trail-card [data-flag]:hover {
+  color: #fff;
 }
 
 html.dark ::selection {

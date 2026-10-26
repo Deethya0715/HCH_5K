@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { closePool, ensureTributesTable } from "../lib/db.mjs";
+import { closePool, ensureTrailCheckinsTable, ensureTributesTable } from "../lib/db.mjs";
 
 function loadEnvFile(filePath) {
   let text = "";
@@ -32,6 +32,8 @@ loadEnvFile(resolve(process.cwd(), ".env"));
 try {
   await ensureTributesTable();
   console.log("tributes table is ready");
+  await ensureTrailCheckinsTable();
+  console.log("trail_checkins table is ready");
 } catch (error) {
   console.error(error instanceof Error ? error.message : "Could not prepare the tributes table");
   process.exitCode = 1;

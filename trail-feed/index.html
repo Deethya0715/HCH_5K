@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#F8FAFC" />
+    <script>
+      (function () {
+        var theme = "light";
+        try {
+          var stored = localStorage.getItem("hch-theme");
+          if (stored === "light" || stored === "dark") {
+            theme = stored;
+          } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+          }
+        } catch (e) {
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+          }
+        }
+        var meta = document.querySelector('meta[name="theme-color"]');
+        var lightColor = (meta && meta.getAttribute("content")) || "#F8FAFC";
+        if (meta) meta.setAttribute("data-theme-light", lightColor);
+        if (theme === "dark") document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = theme;
+        if (meta && theme === "dark") meta.setAttribute("content", "#121418");
+      })();
+    </script>
+    <title>Community Trail Feed | Hope. Cope. Heal.</title>
+    <meta
+      name="description"
+      content="Photos and one-sentence kindness notes from the Hope. Cope. Heal. Tribute Trail. Send a heart, candle, or hug, or share a check-in."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://hopecopeheal.vercel.app/trail-feed" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hope. Cope. Heal." />
+    <meta property="og:url" content="https://hopecopeheal.vercel.app/trail-feed" />
+    <meta property="og:title" content="Community Trail Feed | Hope. Cope. Heal." />
+    <meta
+      property="og:description"
+      content="Photos and one-sentence kindness notes from the Tribute Trail at Frisco Commons Park."
+    />
+    <meta property="og:image" content="https://hopecopeheal.vercel.app/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Community Trail Feed | Hope. Cope. Heal." />
+    <meta
+      name="twitter:description"
+      content="Photos and one-sentence kindness notes from the Tribute Trail at Frisco Commons Park."
+    />
+    <meta name="twitter:image" content="https://hopecopeheal.vercel.app/assets/og-image.png" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body class="w-full max-w-full overflow-x-hidden bg-slate-50 text-slate-800 antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-slate-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"
+      >Skip to main content</a
+    >
+
+    <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+      <div class="section-shell flex min-h-20 flex-wrap items-center gap-x-3 gap-y-2 py-3 sm:h-24 sm:flex-nowrap sm:py-0">
+        <a href="/" class="mr-auto flex min-w-0 items-center" aria-label="Hope. Cope. Heal. home">
+          <img
+            src="/assets/logo-light.png"
+            alt=""
+            width="1024"
+            height="430"
+            class="brand-logo-light h-14 w-auto max-w-[11.5rem] object-contain object-left sm:h-[4.5rem] sm:max-w-[16rem]"
+          />
+          <img
+            src="/assets/logo-dark.png"
+            alt=""
+            width="1024"
+            height="430"
+            class="brand-logo-dark hidden h-14 w-auto max-w-[11.5rem] object-contain object-left sm:h-[4.5rem] sm:max-w-[16rem]"
+          />
+        </a>
+        <a
+          href="/tribute"
+          class="hidden rounded-full px-3 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 lg:inline-flex"
+          >Dedicate a sign</a
+        >
+        <div class="flex shrink-0 items-center gap-2">
+          <a
+            href="/trail-feed/new"
+            class="inline-flex rounded-full bg-gold-500 px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm hover:bg-gold-600"
+            >Check in</a
+          >
+          <button
+            type="button"
+            id="themeToggle"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:bg-slate-50"
+            aria-pressed="false"
+            aria-label="Toggle color theme"
+          >
+            <svg viewBox="0 0 24 24" class="theme-icon-moon h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z" />
+            </svg>
+            <svg viewBox="0 0 24 24" class="theme-icon-sun hidden h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M18.7 18.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M18.7 5.3l1.1-1.1" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="section-shell py-8 sm:py-12">
+        <a href="/#heroes" class="inline-flex items-center rounded-full py-2 text-sm font-semibold text-slate-600 hover:text-slate-900">← Back to the tribute trail</a>
+        <header class="mt-4 max-w-3xl">
+          <p class="eyebrow">Honoring Our Heroes</p>
+          <h1 class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Community Trail Feed</h1>
+          <p class="mt-4 text-base leading-relaxed text-slate-600">
+            Photos and one-sentence notes from the tribute trail, including people cheering from home.
+            A heart, candle, or hug is a quiet way to answer. Report hides a post from this page right away.
+          </p>
+        </header>
+
+        <p id="feedNotice" class="mt-6 hidden rounded-2xl border border-teal-soft-200 bg-teal-soft-50 px-4 py-3 text-sm font-semibold text-teal-soft-800" role="status"></p>
+        <p id="feedStatus" class="mt-4 hidden rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700" role="status"></p>
+
+        <div id="feedGrid" class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <!--FEED_CARDS-->
+          <p class="col-span-full rounded-2xl border border-slate-200 bg-white p-6 text-sm leading-relaxed text-slate-600">
+            No check-ins yet. Share a photo and a one-sentence kindness note from the trail.
+          </p>
+          <!--/FEED_CARDS-->
+        </div>
+
+        <noscript>
+          <p class="mt-6 max-w-3xl rounded-2xl border border-gold-200 bg-gold-50 p-4 text-sm leading-relaxed text-gold-900">
+            Reactions, sharing, and reporting need JavaScript. You can still read the check-ins above.
+          </p>
+        </noscript>
+      </div>
+    </main>
+
+    <footer class="border-t border-slate-200 py-8 text-center text-sm text-slate-500">
+      <a class="font-semibold text-slate-700 hover:text-slate-900" href="/">Hope. Cope. Heal.</a>
+      <span aria-hidden="true"> · </span>
+      March 27, 2027 · Frisco Commons Park
+    </footer>
+
+    <dialog id="reportDialog" class="trail-dialog w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 text-slate-800 shadow-md">
+      <form method="dialog">
+        <h2 class="text-lg font-extrabold text-slate-900">Report this check-in?</h2>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">
+          The check-in from <span id="reportName">this person</span> will be hidden from the community feed right away.
+        </p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <button type="submit" value="cancel" class="ml-auto inline-flex min-h-11 items-center rounded-full px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100">Cancel</button>
+          <button type="submit" value="confirm" class="inline-flex min-h-11 items-center rounded-full bg-slate-900 px-4 py-2 text-sm font-bold text-white hover:bg-slate-700">Hide this post</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/assets/trail-feed.js" defer></script>
+    <script src="/assets/theme.js" defer></script>
+  </body>
+</html>

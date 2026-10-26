@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#F8FAFC" />
+    <script>
+      (function () {
+        var theme = "light";
+        try {
+          var stored = localStorage.getItem("hch-theme");
+          if (stored === "light" || stored === "dark") {
+            theme = stored;
+          } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+          }
+        } catch (e) {
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            theme = "dark";
+          }
+        }
+        var meta = document.querySelector('meta[name="theme-color"]');
+        var lightColor = (meta && meta.getAttribute("content")) || "#F8FAFC";
+        if (meta) meta.setAttribute("data-theme-light", lightColor);
+        if (theme === "dark") document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = theme;
+        if (meta && theme === "dark") meta.setAttribute("content", "#121418");
+      })();
+    </script>
+    <title>Trail Check-In | Hope. Cope. Heal.</title>
+    <meta
+      name="description"
+      content="Check in on the Hope. Cope. Heal. Tribute Trail. Add a ribbon frame, event stamp, or hero name, then share a one-sentence kindness note."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://hopecopeheal.vercel.app/trail-feed/new" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hope. Cope. Heal." />
+    <meta property="og:url" content="https://hopecopeheal.vercel.app/trail-feed/new" />
+    <meta property="og:title" content="Trail Check-In | Hope. Cope. Heal." />
+    <meta
+      property="og:description"
+      content="Snap a photo, add a Hope. Cope. Heal. frame, and post a one-sentence kindness note to the community trail feed."
+    />
+    <meta property="og:image" content="https://hopecopeheal.vercel.app/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body class="w-full max-w-full overflow-x-hidden bg-slate-50 text-slate-800 antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-slate-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"
+      >Skip to main content</a
+    >
+
+    <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+      <div class="section-shell flex min-h-20 flex-wrap items-center gap-x-3 gap-y-2 py-3 sm:h-24 sm:flex-nowrap sm:py-0">
+        <a href="/" class="mr-auto flex min-w-0 items-center" aria-label="Hope. Cope. Heal. home">
+          <img
+            src="/assets/logo-light.png"
+            alt=""
+            width="1024"
+            height="430"
+            class="brand-logo-light h-14 w-auto max-w-[11.5rem] object-contain object-left sm:h-[4.5rem] sm:max-w-[16rem]"
+          />
+          <img
+            src="/assets/logo-dark.png"
+            alt=""
+            width="1024"
+            height="430"
+            class="brand-logo-dark hidden h-14 w-auto max-w-[11.5rem] object-contain object-left sm:h-[4.5rem] sm:max-w-[16rem]"
+          />
+        </a>
+        <a href="/trail-feed" class="rounded-full py-2 text-sm font-semibold text-slate-600 hover:bg-slate-100 hover:text-slate-900 sm:px-3">Trail feed</a>
+        <button
+          type="button"
+          id="themeToggle"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:bg-slate-50"
+          aria-pressed="false"
+          aria-label="Toggle color theme"
+        >
+          <svg viewBox="0 0 24 24" class="theme-icon-moon h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5z" />
+          </svg>
+          <svg viewBox="0 0 24 24" class="theme-icon-sun hidden h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 3v1.5M12 19.5V21M4.2 4.2l1.1 1.1M18.7 18.7l1.1 1.1M3 12h1.5M19.5 12H21M4.2 19.8l1.1-1.1M18.7 5.3l1.1-1.1" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="section-shell py-8 sm:py-12">
+        <a href="/trail-feed" class="inline-flex items-center rounded-full py-2 text-sm font-semibold text-slate-600 hover:text-slate-900">← Community trail feed</a>
+        <header class="mt-4 max-w-3xl">
+          <p class="eyebrow">Check in</p>
+          <h1 class="mt-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Share a moment from the trail</h1>
+          <p class="mt-4 text-base leading-relaxed text-slate-600">
+            Take a photo or upload one, then add a ribbon frame, an event stamp, or your hero's name.
+            Those overlays are saved into the picture before it is posted.
+          </p>
+        </header>
+
+        <noscript>
+          <p class="mt-6 max-w-3xl rounded-2xl border border-gold-200 bg-gold-50 p-4 text-sm leading-relaxed text-gold-900">
+            The check-in studio needs JavaScript so the frame and stamp can be saved into your photo.
+          </p>
+        </noscript>
+
+        <form id="checkinForm" class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem]" novalidate>
+          <div class="trail-studio-preview lg:sticky lg:top-24">
+            <section class="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5" aria-labelledby="preview-heading">
+              <h2 id="preview-heading" class="text-lg font-extrabold text-slate-900">Preview</h2>
+              <p id="previewStatus" class="mt-1 text-sm text-slate-500">The frame, stamp, and name tag are saved into the photo.</p>
+              <div id="dropZone" class="mt-4 rounded-2xl bg-slate-50 p-2">
+                <canvas id="previewCanvas" width="1080" height="1350" class="trail-preview mx-auto w-full max-w-md rounded-2xl" aria-label="Preview of your check-in photo with the selected overlays"></canvas>
+              </div>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <button type="button" id="takePhoto" class="inline-flex min-h-11 items-center rounded-full bg-slate-900 px-4 py-2 text-sm font-bold text-white hover:bg-slate-700">Take a photo</button>
+                <button type="button" id="uploadPhoto" class="inline-flex min-h-11 items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-800 hover:bg-slate-50">Upload a photo</button>
+              </div>
+              <p class="mt-2 text-xs text-slate-500">JPG or PNG. You can also drop a photo on the preview.</p>
+              <input id="photoCamera" type="file" accept="image/*" capture="environment" tabindex="-1" aria-hidden="true" class="sr-only" />
+              <input id="photoLibrary" type="file" accept="image/*" tabindex="-1" aria-hidden="true" class="sr-only" />
+            </section>
+          </div>
+
+          <div class="trail-studio-form min-w-0 space-y-6">
+            <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="overlay-heading">
+              <h2 id="overlay-heading" class="text-lg font-extrabold text-slate-900">Filter and overlay</h2>
+              <p class="mt-1 text-sm text-slate-500">Pick a ribbon frame, a stamp, and an optional name tag. They combine.</p>
+
+              <fieldset class="mt-5">
+                <legend class="text-sm font-semibold text-slate-900">Ribbon color</legend>
+                <div class="mt-2 grid gap-2">
+                  <label class="cursor-pointer">
+                    <input class="peer sr-only" type="radio" name="ribbonColor" value="gold" checked />
+                    <span class="block rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-semibold text-slate-700 peer-checked:border-gold-500 peer-checked:bg-gold-50 peer-checked:text-slate-900 peer-focus-visible:ring-2 peer-focus-visible:ring-gold-700 peer-focus-visible:ring-offset-2">In Treatment · gold</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input class="peer sr-only" type="radio" name="ribbonColor" value="teal" />
+                    <span class="block rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-semibold text-slate-700 peer-checked:border-teal-soft-500 peer-checked:bg-teal-soft-50 peer-checked:text-slate-900 peer-focus-visible:ring-2 peer-focus-visible:ring-gold-700 peer-focus-visible:ring-offset-2">Survivor · teal</span>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input class="peer sr-only" type="radio" name="ribbonColor" value="white" />
+                    <span class="block rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-semibold text-slate-700 peer-checked:border-slate-400 peer-checked:bg-slate-100 peer-checked:text-slate-900 peer-focus-visible:ring-2 peer-focus-visible:ring-gold-700 peer-focus-visible:ring-offset-2">In Loving Memory · white dove</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <label class="mt-5 flex items-start gap-3">
+                <input id="frameOn" type="checkbox" class="mt-1 h-4 w-4" checked />
+                <span>
+                  <span class="block text-sm font-semibold text-slate-900">Ribbon color frame</span>
+                  <span class="mt-1 block text-sm text-slate-500">Adds a border wash and the Hope. Cope. Heal. ribbon badge.</span>
+                </span>
+              </label>
+
+              <div class="mt-5">
+                <p id="stampLabel" class="text-sm font-semibold text-slate-900">Event stamp</p>
+                <div class="trail-scroll mt-2" role="radiogroup" aria-labelledby="stampLabel">
+                  <button type="button" class="trail-choice" data-stamp="none" aria-pressed="true">
+                    <span class="mb-2 block h-8 w-full rounded-lg bg-slate-100" aria-hidden="true"></span>
+                    <span class="block text-sm font-bold">No stamp</span>
+                  </button>
+                  <button type="button" class="trail-choice" data-stamp="trail" aria-pressed="false">
+                    <span class="mb-2 block h-8 w-full rounded-lg bg-gold-500" aria-hidden="true"></span>
+                    <span class="block text-sm font-bold">Tribute Trail 2027</span>
+                  </button>
+                  <button type="button" class="trail-choice" data-stamp="virtual" aria-pressed="false">
+                    <span class="mb-2 block h-8 w-full rounded-lg bg-teal-soft-500" aria-hidden="true"></span>
+                    <span class="block text-sm font-bold">Virtual Participant</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="mt-5">
+                <label class="flex items-start gap-3">
+                  <input id="nameTag" type="checkbox" class="mt-1 h-4 w-4" />
+                  <span>
+                    <span class="block text-sm font-semibold text-slate-900">Hero name tag</span>
+                    <span class="mt-1 block text-sm text-slate-500">Places their name in the corner of the photo.</span>
+                  </span>
+                </label>
+                <label for="heroName" class="mt-3 block text-sm font-semibold text-slate-900">Hero's name</label>
+                <input
+                  id="heroName"
+                  name="heroName"
+                  type="text"
+                  maxlength="40"
+                  autocomplete="off"
+                  placeholder="First name"
+                  class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400"
+                />
+              </div>
+            </section>
+
+            <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6" aria-labelledby="details-heading">
+              <h2 id="details-heading" class="text-lg font-extrabold text-slate-900">Your note</h2>
+              <div class="mt-5">
+                <label for="userName" class="block text-sm font-semibold text-slate-900">Your name</label>
+                <input
+                  id="userName"
+                  name="userName"
+                  type="text"
+                  required
+                  maxlength="80"
+                  autocomplete="name"
+                  placeholder="The name on this check-in"
+                  class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 aria-invalid:border-red-500"
+                />
+              </div>
+              <div class="mt-4">
+                <div class="flex items-end justify-between gap-3">
+                  <label for="caption" class="block text-sm font-semibold text-slate-900">Kindness note</label>
+                  <p id="captionCount" class="text-xs font-semibold text-slate-500" aria-live="polite">0 / 180</p>
+                </div>
+                <input
+                  id="caption"
+                  name="caption"
+                  type="text"
+                  required
+                  maxlength="180"
+                  placeholder="One sentence for the people walking by."
+                  class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 aria-invalid:border-red-500"
+                />
+                <p class="mt-1.5 text-xs text-slate-500">One sentence. It appears with your photo on the community feed.</p>
+              </div>
+              <div class="mt-4">
+                <label for="locationTag" class="block text-sm font-semibold text-slate-900">Trail location</label>
+                <select
+                  id="locationTag"
+                  name="locationTag"
+                  required
+                  class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm"
+                >
+                  <option value="">Choose a milestone</option>
+                  <option>Pavilion</option>
+                  <option>Station 1</option>
+                  <option>Station 2</option>
+                  <option>Station 3</option>
+                  <option>North Loop</option>
+                  <option>Honoring Our Heroes Trail</option>
+                  <option>Finish Line</option>
+                  <option>Participating from Home</option>
+                </select>
+              </div>
+
+              <p id="formAlert" class="mt-4 hidden rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-700" role="alert"></p>
+              <button
+                type="submit"
+                id="submitCheckin"
+                class="mt-5 w-full rounded-xl bg-gold-500 px-4 py-3.5 text-sm font-bold text-gold-950 hover:bg-gold-400 disabled:cursor-wait disabled:opacity-70"
+              >
+                Post check-in
+              </button>
+            </section>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="border-t border-slate-200 py-8 text-center text-sm text-slate-500">
+      <a class="font-semibold text-slate-700 hover:text-slate-900" href="/">Hope. Cope. Heal.</a>
+      <span aria-hidden="true"> · </span>
+      March 27, 2027 · Frisco Commons Park
+    </footer>
+
+    <script src="/assets/trail-checkin.js" defer></script>
+    <script src="/assets/theme.js" defer></script>
+  </body>
+</html>
