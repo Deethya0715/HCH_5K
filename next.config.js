@@ -8,6 +8,9 @@ if (process.argv.includes("build")) {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Dynamic tribute, photo, and admin handlers need the Node server, so this
+  // app is not a static export. Capacitor loads that server (capacitor.config.ts)
+  // and copies the static pages into www/ for the native projects.
   reactStrictMode: true,
   async rewrites() {
     return {

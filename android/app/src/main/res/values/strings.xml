@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Tribute Trail</string>
+    <string name="title_activity_main">Tribute Trail</string>
+    <string name="package_name">app.hopecopeheal.tributetrail</string>
+    <string name="custom_url_scheme">app.hopecopeheal.tributetrail</string>
+</resources>

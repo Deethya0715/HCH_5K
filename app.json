@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Hope Cope Heal Tribute Trail",
+    "slug": "hope-cope-heal-tribute-trail",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./public/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hopecopeheal.tributetrail"
+    },
+    "android": {
+      "package": "com.hopecopeheal.tributetrail",
+      "adaptiveIcon": {
+        "foregroundImage": "./public/icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "plugins": [],
+    "extra": {
+      "eas": {
+        "projectId": "4bddca49-b70d-4333-8f4f-d9fd03273a8a"
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ shots/
 .tmp-screens/
 .DS_Store
 .next/
+www/
 public/assets/
 public/register/
 .env
